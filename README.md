@@ -1,9 +1,9 @@
 
 # README
 
-*Project: Atlas*
-*Start Date: March 20, 2026*
-*End Date: ---*
+*Project: Atlas*  
+*Start Date: March 20, 2026*  
+*End Date: ---*  
 
 ---
 
