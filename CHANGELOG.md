@@ -4,6 +4,43 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.5.0
+
+*June 17, 2026 - 13:11*
+
+Wanna see me do something cool? Give me a call!
+
+**WHAT'S NEW?**
+
+- Added `Connect` section with my email and github link.
+- Officially declare portfolio surface contents in place.
+
+## v0.4.0
+
+*June 17, 2026 - 12:53*
+
+Have a look at my proud works!
+
+\
+**WHAT'S NEW?**
+
+- Just the new `Featured Projects` section with initial content that refers to my top 3 projects.
+
+## v0.3.0
+
+*June 17, 2026 - 12:52*
+
+What can I do? Party Tricks?? Yeah, Right?!
+
+\
+**WHAT'S NEW?**
+
+- Added `Skills` section with initial content.
+
+**FIX**
+
+- Updated and corrected severe package dependencies that may cause issues for the users.
+
 ## v0.2.0
 
 *June 11, 2026 - 15:38*
