@@ -1,11 +1,28 @@
+---
+
+type NavItem = {
+    name: string,
+    href: string
+};
+
+const items: NavItem[] = [
+    { name: 'HOME', href: '#hero' },
+    { name: 'MINDSET', href: '#mission' },
+    { name: 'ABOUT', href: '#about' },
+    { name: 'SKILLS', href: '#skills' },
+    { name: 'PROJECTS', href: '#projects' },
+    { name: 'CONNECT', href: '#connect' },
+];
+
+---
+
 <div class="fixed bottom-0 flex justify-between items-center px-8 py-6 w-full">
     <ul class="flex items-start gap-x-16 text-sm font-light tracking-wider">
-        <li><a href="#hero">./HOME</a></li>
-        <li><a href="#mission">./MINDSET</a></li>
-        <li><a href="#about">./ABOUT</a></li>
-        <li><a href="#skills">./SKILLS</a></li>
-        <li><a href="#projects">./PROJECTS</a></li>
-        <li><a href="#connect">./CONNECT</a></li>
+        {items.map((item) => (
+            <li>
+                <a href={item.href} target="_self">./{item.name}</a>
+            </li>
+        ))}
     </ul>
     <div>
         <span class="material-symbols-rounded">menu</span>
