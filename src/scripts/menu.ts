@@ -1,4 +1,4 @@
-let menu: HTMLElement | null = null;
+let menuToggle: HTMLElement | null = null;
 let menuIcon: HTMLElement | null = null;
 
 const menuIcons = {
@@ -8,26 +8,26 @@ const menuIcons = {
 
 export const initMenu = () => {
     // Get the necessary elements for this logic
-    menu = document.querySelector('[data-menu-toggle]');
+    menuToggle = document.querySelector('[data-menu-toggle]');
     menuIcon = document.getElementById('menu-icon');
     
-    if (menu) {
-        menu.addEventListener('click', handleMenuClick);
+    if (menuToggle) {
+        menuToggle.addEventListener('click', handleMenuClick);
     }
 
     updateMenuIcon();
 }
 
 const handleMenuClick = () => {
-    menu?.classList.toggle('active');
+    menuToggle?.classList.toggle('active');
 
     updateMenuIcon();
 }
 
 const updateMenuIcon = () => {
-    if (!menu || !menuIcon) return;
+    if (!menuToggle || !menuIcon) return;
 
-    const isMenuActive = menu.classList.contains('active');
+    const isMenuActive = menuToggle.classList.contains('active');
 
     menuIcon.textContent = isMenuActive 
         ? menuIcons.close 
