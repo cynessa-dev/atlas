@@ -49,8 +49,8 @@ const items: NavItem[] = [
             tracking-wider
     ">
         {items.map((item) => (
-            <li class="px-4 py-2 text-center rounded-full shadow-sm cursor-pointer hover:scale-110 transition-transform duration-300">
-                <a href={item.href} target="_self">./{item.name}</a>
+            <li>
+                <a href={item.href} class="px-4 py-2 text-center rounded-full shadow-sm cursor-pointer hover:scale-110 transition-transform duration-300">./{item.name}</a>
             </li>
         ))}
     </ul>
