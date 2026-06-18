@@ -25,6 +25,14 @@ const items: NavItem[] = [
         ))}
     </ul>
     <div>
-        <span class="material-symbols-rounded">menu</span>
+        <button class="active cursor-pointer" data-menu-toggle>
+            <span id="menu-icon" class="material-symbols-rounded">menu</span>
+        </button>
     </div>
 </div>
+
+<script>
+    import { initMenu } from '../../scripts/menu';
+
+    initMenu();
+</script>
