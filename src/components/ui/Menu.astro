@@ -19,7 +19,7 @@ const items: NavItem[] = [
 <div class="fixed bottom-0 flex justify-between items-center px-8 py-6 w-full">
     <ul class="flex items-start gap-x-16 text-sm font-light tracking-wider">
         {items.map((item) => (
-            <li>
+            <li class="cursor-pointer">
                 <a href={item.href} target="_self">./{item.name}</a>
             </li>
         ))}
