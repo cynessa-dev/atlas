@@ -22,17 +22,40 @@ const items: NavItem[] = [
         bottom-0
         w-full 
         flex 
-        flex-col  
+        flex-col-reverse
         justify-between 
-        items-end 
-        gap-y-4 
-        px-8 
+        items-end
+        gap-y-4
+        px-8
         py-6
-        md:flex-row
+        md:flex-row-reverse
         md:items-center
         md:gap-y-0
 ">
-    <ul 
+    <div>
+        <button
+            type="button"
+            class="
+                inline-flex 
+                size-12
+                items-center 
+                justify-center  
+                rounded-full 
+                shadow-sm 
+                cursor-pointer  
+                transition-transform 
+                duration-300
+                hover:scale-110
+            " 
+            aria-controls="main-menu"
+            aria-expanded="false"
+            data-menu-toggle
+        >
+            <span id="menu-icon" class="material-symbols-rounded">menu</span>
+        </button>
+    </div>
+    <ul
+        id="main-menu"
         class="
             flex 
             flex-col 
@@ -49,7 +72,7 @@ const items: NavItem[] = [
             xl:gap-x-16 
     ">
         {items.map((item) => (
-            <li>
+            <li data-menu-item>
                 <a 
                     href={item.href} 
                     class="
@@ -69,26 +92,6 @@ const items: NavItem[] = [
             </li>
         ))}
     </ul>
-    <div>
-        <button 
-            class="
-                active 
-                inline-flex 
-                size-12
-                items-center 
-                justify-center  
-                rounded-full 
-                shadow-sm 
-                cursor-pointer  
-                transition-transform 
-                duration-300
-                hover:scale-110
-            " 
-            data-menu-toggle
-        >
-            <span id="menu-icon" class="material-symbols-rounded">menu</span>
-        </button>
-    </div>
 </div>
 
 <script>
