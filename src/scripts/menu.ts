@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-let menuToggle: HTMLElement | null = null;
+let menuToggle: HTMLButtonElement | null = null;
 let menuItems: NodeListOf<HTMLElement> | null = null;
 let menuIcon: HTMLElement | null = null;
 
@@ -21,7 +21,7 @@ type Offset = {
 };
 
 export const initMenu = () => {
-    // Get the necessary elemenet first before proceding
+    // Get the necessary element first before proceding
     menuToggle = document.querySelector('[data-menu-toggle]');
     
     if (!menuToggle) return;
@@ -31,6 +31,7 @@ export const initMenu = () => {
     menuIcon = document.getElementById('menu-icon');
 
     menuToggle.addEventListener('click', handleMenuClick);
+    menuToggle.disabled = true; // Prevent interaction during the entrance animation to avoid weird early-clicks issues
 
     // Get the center position of the menu toggle for animations
     toggleRect = menuToggle.getBoundingClientRect();
@@ -47,7 +48,7 @@ export const initMenu = () => {
     );
 
     createMenuTimeline();
-    renderMenu(initiallyOpen);
+    playEntranceAnimation(initiallyOpen);
 };
 
 const handleMenuClick = () => {
@@ -70,6 +71,35 @@ const renderMenu = (isOpen: boolean) => {
     isOpen
         ? menuTimeline.play()
         : menuTimeline.reverse();
+};
+
+const playEntranceAnimation = (initiallyOpen: boolean) => {
+    const menuToggleWrapper = document.querySelector('[data-menu-toggle-wrapper]');
+
+    if (!menuToggle) return;
+
+    if (!menuToggleWrapper) {
+        menuToggle.disabled = false;
+        renderMenu(initiallyOpen);
+        return;
+    }
+
+    const wrapperRect = menuToggleWrapper.getBoundingClientRect();
+    const offsetY = 16;
+    const startY = window.innerHeight - wrapperRect.top + offsetY;
+
+    gsap.from(menuToggleWrapper, {
+        y: startY,
+        scale: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+        onComplete: () => {
+            if (!menuToggle) return;
+
+            menuToggle.disabled = false;
+            renderMenu(initiallyOpen);
+        },
+    });
 };
 
 const createMenuTimeline = () => {
