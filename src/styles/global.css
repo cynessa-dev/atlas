@@ -7,6 +7,9 @@
     --color-success: var(--color-green-500);
     --color-warning: var(--color-yellow-500);
     --color-error: var(--color-red-500);
+
+    /* SHADOWS */
+    --shadow-sm: 4px 4px 12px -4px rgba(0, 0, 0, 0.25);
 }
 
 .material-symbols-rounded {

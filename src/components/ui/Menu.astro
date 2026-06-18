@@ -19,13 +19,13 @@ const items: NavItem[] = [
 <div class="fixed bottom-0 flex justify-between items-center px-8 py-6 w-full">
     <ul class="flex items-start gap-x-16 text-sm font-light tracking-wider">
         {items.map((item) => (
-            <li class="cursor-pointer">
+            <li class="px-4 py-2 text-center rounded-full shadow-sm cursor-pointer hover:scale-110 transition-transform duration-300">
                 <a href={item.href} target="_self">./{item.name}</a>
             </li>
         ))}
     </ul>
     <div>
-        <button class="active cursor-pointer" data-menu-toggle>
+        <button class="active inline-flex justify-center items-center size-12 rounded-full shadow-sm cursor-pointer hover:scale-110 transition-transform duration-300" data-menu-toggle>
             <span id="menu-icon" class="material-symbols-rounded">menu</span>
         </button>
     </div>
