@@ -114,6 +114,7 @@ const createMenuTimeline = () => {
         opacity: 0.0,
         stagger: 0.1,
         duration: 0.5,
+        ease: 'sine.out'
     });
 };
 
