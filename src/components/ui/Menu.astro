@@ -16,8 +16,38 @@ const items: NavItem[] = [
 
 ---
 
-<div class="fixed bottom-0 flex justify-between items-center px-8 py-6 w-full">
-    <ul class="flex items-start gap-x-16 text-sm font-light tracking-wider">
+<div 
+    class="
+        fixed 
+        bottom-0 
+        flex 
+        flex-col 
+        md:flex-row 
+        justify-between 
+        items-end 
+        md:items-center
+        gap-y-4
+        md:gap-y-0 
+        px-8 
+        py-6 
+        w-full
+">
+    <ul 
+        class="
+            flex 
+            flex-col 
+            md:flex-row 
+            items-end 
+            md:items-start 
+            md:gap-x-4
+            lg:gap-x-8
+            xl:gap-x-16
+            gap-y-4 
+            md:gap-y-0
+            text-sm 
+            font-light 
+            tracking-wider
+    ">
         {items.map((item) => (
             <li class="px-4 py-2 text-center rounded-full shadow-sm cursor-pointer hover:scale-110 transition-transform duration-300">
                 <a href={item.href} target="_self">./{item.name}</a>
