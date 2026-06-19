@@ -118,7 +118,136 @@ Additional elements:
 
 The goal is clarity.
 
-Nothing else matters if the visitor leaves immediately.
+**Nothing else matters if the visitor leaves immediately.**
+
+### HERO CONCEPT
+
+### OPENING SEQUENCE
+
+The portfolio begins in darkness.
+
+Not merely a dark background, but the absence of a visible environment.
+
+The visitor arrives before the experience has fully awakened.
+
+A desk lamp slowly illuminates the scene.
+
+As the light spreads, a workstation is revealed:
+
+* ThinkPad L14 laptop
+* Desk surface
+* Small personal objects
+* Subtle environmental details
+
+The workstation should feel lived-in and personal rather than decorative.
+
+The objective is to establish that the visitor is entering a creator's space.
+
+---
+
+### LAPTOP WAKE-UP
+
+The laptop begins asleep.
+
+After the lamp illuminates the scene, the laptop screen wakes.
+
+The hero content appears on the laptop screen itself.
+
+Example:
+
+Christian Mamplata
+
+Builder of Interactive Experiences
+
+Building software beyond functionality.
+
+Additional information may include:
+
+* Current availability
+* Local time
+* Navigation
+
+The hero content is part of the laptop screen, not layered above the scene.
+
+The laptop acts as a frame for the introduction.
+
+Subject to change, maybe I could make the local time a clock or something.
+
+---
+
+### SCROLL TRANSITION
+
+The visitor begins by looking at the workstation.
+
+As scrolling begins, the camera slowly moves forward toward the laptop screen.
+
+The movement should feel calm and intentional.
+
+No dramatic camera motion.
+
+No sudden perspective shifts.
+
+Only a gradual approach.
+
+As the camera advances:
+
+* The laptop grows larger
+* The desk fades from attention
+* The room becomes less visible
+* The screen occupies more of the viewport
+
+Eventually, the laptop screen fills the entire viewport.
+
+The visitor has now crossed the boundary between the physical workspace and the ideas behind it.
+
+---
+
+### NARRATIVE PURPOSE
+
+The portfolio theme is:
+
+BEYOND THE SCREEN
+
+The hero should not merely display this concept.
+
+The hero should physically demonstrate it.
+
+The visitor begins outside the screen.
+
+The visitor moves into the screen.
+
+The visitor discovers the mindset behind the work.
+
+The title becomes an experience rather than a statement.
+
+---
+
+### TECHNICAL DIRECTION
+
+Version 1 should use 2D or 2.5D techniques.
+
+Recommended approach:
+
+* Layered artwork
+* GSAP
+* ScrollTrigger
+* Scale and translation
+* Subtle parallax
+
+Avoid:
+
+* Complex 3D scenes
+* WebGL
+* Three.js
+* Unnecessary technical complexity
+
+The illusion of depth is more important than actual depth.
+
+Art creates the world.
+
+HTML provides the content.
+
+GSAP provides the camera movement.
 
 ---
 
