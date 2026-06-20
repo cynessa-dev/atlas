@@ -19,7 +19,11 @@ import Menu from '../components/ui/Menu.astro';
 	</head>
 	<body class="bg-slate-200">
         <Header />
-		<slot />
+		<div id="smooth-wrapper">
+			<div id="smooth-content">
+				<slot />
+			</div>
+		</div>
         <Menu />
 	</body>
 </html>
@@ -32,3 +36,9 @@ import Menu from '../components/ui/Menu.astro';
 		height: 100%;
 	}
 </style>
+
+<script>
+	import { initSmoothScroll } from "../scripts/smooth-scroll";
+
+	initSmoothScroll();
+</script>
