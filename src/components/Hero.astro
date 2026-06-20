@@ -1,9 +1,16 @@
 
-<section id="hero" class="relative flex items-center min-h-screen">
-    <div id="props" class="absolute w-full h-full">
-        
+<section id="hero" class="relative flex items-center min-h-screen overflow-hidden">
+    <div id="props" class="absolute w-full h-full origin-[50%_50%]">
+        <div id="laptop" class="absolute top-1/2 left-1/2 -translate-1/2 w-240 h-160 bg-gray-600">
+        </div>
     </div>
     <div id="contents">
 
     </div>
 </section>
+
+<script>
+    import { initHero } from '../scripts/hero';
+
+    initHero();
+</script>
