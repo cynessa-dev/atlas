@@ -1,4 +1,7 @@
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 let propsContainer: HTMLElement | null = null
 
@@ -10,6 +13,7 @@ export const initHero = () => {
 
     playEntranceAnimation();
     playBootMessages();
+    playScrollAnimation();
 };
 
 const playEntranceAnimation = () => {
@@ -22,15 +26,63 @@ const playEntranceAnimation = () => {
 };
 
 const playBootMessages = () => {
+    const messages = document.querySelectorAll<HTMLElement>('[data-boot-message]');
+    
+    if (messages.length === 0) return;
+
+    const loadingIcon = ['|', '/', '-', '\\'];
+
     const timeline = gsap.timeline();
-    const messages = document.querySelectorAll('[data-boot-message]');
+    messages.forEach((message) => {
+        const loading = message.dataset.bootLoading === 'true';
+        const seconds = Number(message.dataset.bootSeconds);
 
-    if (!messages) return;
-
-    messages.forEach((message, index) => {
         timeline.from(message, {
             autoAlpha: 0,
-            duration: 0.25,
+            duration: 0.2,
         });
+
+        if (loading) {
+            const spinnerSpeed = 50;
+            const originalText = message.textContent ?? '';
+            let lastUpdate = 0;
+            let i = 0;
+
+            timeline.to({}, {
+                duration: seconds,
+                onUpdate: () => {
+                    if (!loading) return;
+
+                    const now = performance.now();
+
+                    if (now - lastUpdate < spinnerSpeed) return;
+
+                    lastUpdate = now;
+                    message.textContent = originalText + loadingIcon[i];
+                    i = (i + 1) % loadingIcon.length;
+                },
+                onComplete: () => {
+                    message.textContent = originalText + '... OK';
+                }
+            });
+        }
+    });
+};
+
+const playScrollAnimation = () => {
+    const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: '+=1500',
+            pin: true,
+            scrub: 1,
+        }
+    });
+
+    timeline.to('#laptop', {
+        scale: 3.0,
+        transformOrigin: 'center center',
+        ease: 'none',
     });
 };
