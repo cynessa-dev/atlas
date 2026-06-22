@@ -26,13 +26,15 @@ const playEntranceAnimation = () => {
 };
 
 const playBootMessages = () => {
+    const bootContainer = document.querySelector<HTMLElement>('[data-boot-container');
     const messages = document.querySelectorAll<HTMLElement>('[data-boot-message]');
     
-    if (messages.length === 0) return;
+    if (!bootContainer || messages.length === 0) return;
 
     const loadingIcon = ['|', '/', '-', '\\'];
 
     const timeline = gsap.timeline();
+
     messages.forEach((message) => {
         const loading = message.dataset.bootLoading === 'true';
         const seconds = Number(message.dataset.bootSeconds);
@@ -40,6 +42,7 @@ const playBootMessages = () => {
         timeline.from(message, {
             autoAlpha: 0,
             duration: 0.2,
+            ease: 'sine.in'
         });
 
         if (loading) {
@@ -67,6 +70,13 @@ const playBootMessages = () => {
             });
         }
     });
+
+    timeline.to(bootContainer, {
+        autoAlpha: 0,
+        duration: 0.1,
+        ease: 'sine.out',
+        onComplete: () => bootContainer.remove(),
+    })
 };
 
 const playScrollAnimation = () => {
