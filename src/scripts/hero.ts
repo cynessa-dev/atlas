@@ -127,14 +127,14 @@ const playScrollAnimation = () => {
         scrollTrigger: {
             trigger: '#hero',
             start: 'top top',
-            end: '+=1500',
+            end: '+=5000',
             pin: true,
             scrub: 1,
         }
     });
 
     timeline.to('#laptop', {
-        scale: 3.0,
+        scale: 100.0,
         transformOrigin: 'center center',
         ease: 'none',
     });
