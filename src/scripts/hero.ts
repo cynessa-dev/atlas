@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { showFlex } from './utility';
+import { setMenuOpen } from './menu';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -137,5 +138,7 @@ const playScrollAnimation = () => {
         scale: 100.0,
         transformOrigin: 'center center',
         ease: 'none',
+        onStart: () => setMenuOpen(false),
+        onReverseComplete: () => setMenuOpen(true),
     });
 };
