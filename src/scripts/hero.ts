@@ -133,7 +133,7 @@ const playScrollAnimation = () => {
         }
     });
 
-    timeline.to('#laptop', {
+    timeline.to(propsContainer, {
         scale: 100.0,
         transformOrigin: 'center center',
         ease: 'none',
