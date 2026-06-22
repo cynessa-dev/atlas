@@ -1,46 +1,39 @@
-# Astro Starter Kit: Basics
+# MAMPLATA | Personal Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Foreword
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Thank you for viewing the repository of my portfolio! Whether you are a fellow developer, recruiter, client, or just a curious user, I hope you gain some *insights* regarding me and the project!
 
-## 🚀 Project Structure
+You can read the [DEVLOG.md here!](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/DEVLOG.md)  
+If you want to delve even deeper, here are my [DESIGN_NOTES.md](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/DESIGN_NOTES.md).  
+The versions are found in [CHANGELOG.md](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/CHANGELOG.md).  
 
-Inside of your Astro project, you'll see the following folders and files:
+## Details
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+### What you will expect
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+I poured my love into this portfolio for you to enjoy your visit. You'll be able to see my:
 
-## 🧞 Commands
+- Background
+- Philosophy
+- Professional Details
+- Skills
+- Most Proud Projects (Maximum of 3 in all of my fields)
+- and ways to contact me!
 
-All commands are run from the root of the project, from a terminal:
+Be sure to sit back and relax while my story unfolds! -w-
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Technologies
 
-## 👀 Want to learn more?
+I used the following technologies to build this portflolio:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [GSAP](https://gsap.com/)
+- [Vercel](https://vercel.com/)
+
+I used this opportunity to learn some new frameworks and tools to aid me in the future, that's pretty much the reason why I chose `Astro` and `GSAP`, other than being perfetcly fit for my system requirments and styling choice.
+
+### Disclaimer
+
+Please only use this repository as a learning material. As such, I forbid the distribution of this repository and the codes in it for commercial purposes. Let us all support creativity and uniqueness as that brings out the best of us!
