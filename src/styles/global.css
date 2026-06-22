@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bytesized&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -22,8 +22,8 @@
     'opsz' 24
 }
 
-.bytesized {
-  font-family: "Bytesized", sans-serif;
+.tiny5-regular {
+  font-family: "Tiny5", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
