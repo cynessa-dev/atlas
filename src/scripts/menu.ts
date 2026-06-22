@@ -51,14 +51,18 @@ export const initMenu = () => {
     playEntranceAnimation(initiallyOpen);
 };
 
-const handleMenuClick = () => {
+export const setMenuOpen = (state?: boolean) => {
     if (!menuToggle) return;
     
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-    const nextState = !isOpen;
+    const nextState = state === undefined ? !isOpen : state;
 
     menuToggle.setAttribute('aria-expanded', String(nextState));
     renderMenu(nextState);
+}
+
+const handleMenuClick = () => {
+    setMenuOpen();
 };
 
 const renderMenu = (isOpen: boolean) => {
