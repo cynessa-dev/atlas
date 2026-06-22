@@ -89,10 +89,7 @@ const playKernelAnimation = () => {
     if (!kernelContainer) return;
 
     const timeline = gsap.timeline({
-        
-        onStart: () => {
-            showFlex(kernelContainer);
-        }
+        onStart: () => showFlex(kernelContainer)
     });
 
     timeline.
@@ -104,7 +101,25 @@ const playKernelAnimation = () => {
             autoAlpha: 0,
             duration: 0.2,
             delay: 2.0,
-        });
+            onComplete: () => kernelContainer.remove(),
+        })
+        .call(playTaglineAnimation);
+};
+
+const playTaglineAnimation = () => {
+    const taglineContainer = document.getElementById('tagline');
+
+    if (!taglineContainer) return;
+
+    const timeline = gsap.timeline({
+        onStart: () => showFlex(taglineContainer)
+    });
+
+    timeline.from(taglineContainer, {
+        autoAlpha: 0,
+        duration: 0.2,
+        ease: 'sine.in',
+    })
 };
 
 const playScrollAnimation = () => {

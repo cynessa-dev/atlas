@@ -1,5 +1,7 @@
 ---
 
+import LineTrailing from "./ui/LineTrailing.astro";
+
 type bootMessage = {
     message: string,
     loading?: boolean,
@@ -20,12 +22,9 @@ const bootMessages: bootMessage[] = [
 
 ---
 
-<section id="hero" class="relative flex items-center min-h-screen overflow-hidden">
+<section id="hero" class="relative flex items-center min-h-screen overflow-hidden select-none">
     <div id="props" class="absolute w-full h-full origin-[50%_50%]">
         <div id="laptop" class="absolute top-1/2 left-1/2 -translate-1/2 px-6 py-4 w-240 h-160 bg-gray-900">
-            <div id="kernel" class="jetbrains-mono-400 hidden justify-center items-center w-full h-full">
-                <h1 class="text-zinc-200 text-8xl font-black" aria-label="ChanOS Kernel Logo">ChanOS</h1>
-            </div>
             <div class="jetbrains-mono-400 text-zinc-200" data-boot-container>
                 {bootMessages.map((boot) => (
                     <p 
@@ -36,6 +35,17 @@ const bootMessages: bootMessage[] = [
                         {boot.message}
                     </p>
                 ))}
+            </div>
+            <div id="kernel" class="jetbrains-mono-400 hidden justify-center items-center w-full h-full">
+                <h1 class="text-zinc-200 text-8xl font-black" aria-label="ChanOS Kernel Logo">ChanOS</h1>
+            </div>
+            <div id="tagline" class="hidden flex-col justify-center items-center gap-y-2 w-full h-full text-zinc-200">
+                <h1 class="text-4xl font-bold" aria-label="Tagline">Building software beyond functionality</h1>
+                <div class="flex items-center gap-x-2 px-24 w-full">
+                    <LineTrailing />
+                    <p class="text-gray-400 text-lg tracking-wider">Builder of Interactive Experiences</p>
+                    <LineTrailing />
+                </div>
             </div>
         </div>
     </div>
