@@ -26,7 +26,7 @@ const playEntranceAnimation = () => {
 };
 
 const playBootMessages = () => {
-    const bootContainer = document.querySelector<HTMLElement>('[data-boot-container');
+    const bootContainer = document.querySelector<HTMLElement>('[data-boot-container]');
     const messages = document.querySelectorAll<HTMLElement>('[data-boot-message]');
     
     if (!bootContainer || messages.length === 0) return;
@@ -71,12 +71,39 @@ const playBootMessages = () => {
         }
     });
 
-    timeline.to(bootContainer, {
-        autoAlpha: 0,
-        duration: 0.1,
-        ease: 'sine.out',
-        onComplete: () => bootContainer.remove(),
-    })
+    timeline.
+        to(bootContainer, {
+            autoAlpha: 0,
+            duration: 0.1,
+            ease: 'sine.out',
+            onComplete: () => bootContainer.remove(),
+        })
+        .call(playKernelAnimation);
+};
+
+const playKernelAnimation = () => {
+    const kernelContainer = document.getElementById('kernel');
+
+    if (!kernelContainer) return;
+
+    const timeline = gsap.timeline({
+        
+        onStart: () => {
+            kernelContainer.classList.remove('hidden');
+            kernelContainer.classList.add('flex');
+        }
+    });
+
+    timeline.
+        from(kernelContainer, {
+            autoAlpha: 0,
+            duration: 0.2,
+        })
+        .to(kernelContainer, {
+            autoAlpha: 0,
+            duration: 0.2,
+            delay: 2.0,
+        });
 };
 
 const playScrollAnimation = () => {
