@@ -9,13 +9,13 @@ type bootMessage = {
 const bootMessages: bootMessage[] = [
     { message: 'POST initiated' },
     { message: 'CPU detected' },
-    { message: 'Memory test' },
-    { message: 'Brewing coffee' },
+    { message: 'Memory test', loading: true, seconds: 2.0 },
+    { message: 'Brewing coffee', loading: true, seconds: 3.0 },
     { message: 'Boot device: COOL_PORTFOLIO' },
-    { message: 'Loading kernel: ChanOS' },
+    { message: 'Loading kernel: ChanOS', loading: true, seconds: 2.0 },
     { message: 'Initializing interface' },
     { message: 'READY' },
-    { message: 'Booting MamplaTech' },
+    { message: 'Booting MamplaTech', loading: true, seconds: 3.0 },
 ]
 
 ---
@@ -31,7 +31,7 @@ const bootMessages: bootMessage[] = [
                     <p 
                         data-boot-message
                         data-boot-loading={boot.loading ?? false}
-                        data-boot-seconds={boot.seconds ?? 0.0}
+                        data-boot-seconds={boot.seconds ?? 1.0}
                     >
                         {boot.message}
                     </p>
