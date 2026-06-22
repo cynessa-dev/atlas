@@ -128,17 +128,23 @@ const playScrollAnimation = () => {
         scrollTrigger: {
             trigger: '#hero',
             start: 'top top',
-            end: '+=5000',
+            end: '+=1500',
             pin: true,
             scrub: 1,
         }
     });
 
-    timeline.to(propsContainer, {
-        scale: 100.0,
+    timeline.to('#laptop-screen', {
+        scale: 2.0,
         transformOrigin: 'center center',
         ease: 'none',
         onStart: () => setMenuOpen(false),
         onReverseComplete: () => setMenuOpen(true),
     });
+
+    timeline.to('#tagline', {
+        scale: 3.0,
+        transformOrigin: 'center center',
+        ease: 'none'
+    }, '<')
 };
