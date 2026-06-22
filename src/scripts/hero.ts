@@ -100,7 +100,7 @@ const playKernelAnimation = () => {
         .to(kernelContainer, {
             autoAlpha: 0,
             duration: 0.2,
-            delay: 2.0,
+            delay: 1.0,
             onComplete: () => kernelContainer.remove(),
         })
         .call(playTaglineAnimation);
