@@ -1,6 +1,8 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { showFlex } from './utility';
+
 gsap.registerPlugin(ScrollTrigger);
 
 let propsContainer: HTMLElement | null = null
@@ -89,8 +91,7 @@ const playKernelAnimation = () => {
     const timeline = gsap.timeline({
         
         onStart: () => {
-            kernelContainer.classList.remove('hidden');
-            kernelContainer.classList.add('flex');
+            showFlex(kernelContainer);
         }
     });
 
