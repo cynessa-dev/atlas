@@ -1,5 +1,11 @@
 # AGENTS.md
 
+## References
+
+Here are the materials you may refer to help you assist me better:
+
+- [Laws Of UX](https://lawsofux.com/)
+
 ## Purpose
 
 This project uses Codex as a learning assistant, not as a replacement developer.
