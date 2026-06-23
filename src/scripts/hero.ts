@@ -127,10 +127,12 @@ const playScrollAnimation = () => {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: '#hero',
-            start: 'top top',
+            start: 'top top-=1',
             end: '+=1500',
             pin: true,
             scrub: 1,
+            onEnter: () => setMenuOpen(false),
+            onLeaveBack: () => setMenuOpen(true),
         }
     });
 
@@ -138,8 +140,6 @@ const playScrollAnimation = () => {
         scale: 2.0,
         transformOrigin: 'center center',
         ease: 'none',
-        onStart: () => setMenuOpen(false),
-        onReverseComplete: () => setMenuOpen(true),
     });
 
     timeline.to('#tagline', {
