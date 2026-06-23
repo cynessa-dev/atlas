@@ -144,6 +144,7 @@ const playScrollAnimation = () => {
 
     timeline.to('#tagline', {
         scale: 3.0,
+        autoAlpha: 0,
         transformOrigin: 'center center',
         ease: 'none'
     }, '<');
