@@ -124,81 +124,32 @@ The goal is clarity.
 
 ### OPENING SEQUENCE
 
-The portfolio begins in darkness.
+The portfolio begins in darkness, not merely a dark background, but the absence of a visible light. This dark environment will be used to guide the user's eyes to the **important subject**.
 
-Not merely a dark background, but the absence of a visible environment.
+It won't be pitch black, just very dark area. Then a laptop is at the center that slowly wakes up to boot up the BIOS. This ain't just some random decoration, it's to allow the webpage to prepare itself, while the user is "already" using the portfolio.
 
-The visitor arrives before the experience has fully awakened.
+End result of that, user feels like the portfolio is already loaded and the actual loading make it seems like part of the experience.
 
-A desk lamp slowly illuminates the scene.
-
-As the light spreads, a workstation is revealed:
-
-* ThinkPad L14 laptop
-* Desk surface
-* Small personal objects
-* Subtle environmental details
-
-The workstation should feel lived-in and personal rather than decorative.
-
-The objective is to establish that the visitor is entering a creator's space.
+Once the loading is finished, it should show the Tagline and my Title or Nature of work.
 
 ---
 
 ### LAPTOP WAKE-UP
 
-The laptop begins asleep.
-
-After the lamp illuminates the scene, the laptop screen wakes.
-
-The hero content appears on the laptop screen itself.
+Laptop screen wakes up to boot, and after booting shows this content.
 
 Example:
 
-Christian Mamplata
-
-Builder of Interactive Experiences
-
 Building software beyond functionality.
+-- Builder of Interactive Experiences --
 
-Additional information may include:
-
-* Current availability
-* Local time
-* Navigation
-
-The hero content is part of the laptop screen, not layered above the scene.
-
-The laptop acts as a frame for the introduction.
-
-Subject to change, maybe I could make the local time a clock or something.
+The laptop is just some png we can manipulate to make it seem like part of the world, but the frame is an actual html div that is attached to the laptop.
 
 ---
 
 ### SCROLL TRANSITION
 
-The visitor begins by looking at the workstation.
-
-As scrolling begins, the camera slowly moves forward toward the laptop screen.
-
-The movement should feel calm and intentional.
-
-No dramatic camera motion.
-
-No sudden perspective shifts.
-
-Only a gradual approach.
-
-As the camera advances:
-
-* The laptop grows larger
-* The desk fades from attention
-* The room becomes less visible
-* The screen occupies more of the viewport
-
-Eventually, the laptop screen fills the entire viewport.
-
-The visitor has now crossed the boundary between the physical workspace and the ideas behind it.
+The user will scroll down and it should scale the hero section until it is out of viewport. This is literally the theme **"Beyond the Screen."** Then it should transition to the Mindset section flawlessly.
 
 ---
 
@@ -208,17 +159,7 @@ The portfolio theme is:
 
 BEYOND THE SCREEN
 
-The hero should not merely display this concept.
-
-The hero should physically demonstrate it.
-
-The visitor begins outside the screen.
-
-The visitor moves into the screen.
-
-The visitor discovers the mindset behind the work.
-
-The title becomes an experience rather than a statement.
+This portfolio will be designed so that it won't be any generic portfolio, it should be unique and creative. I always tell this myself to look beyond the screen.
 
 ---
 
