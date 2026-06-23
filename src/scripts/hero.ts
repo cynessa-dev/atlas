@@ -146,5 +146,5 @@ const playScrollAnimation = () => {
         scale: 3.0,
         transformOrigin: 'center center',
         ease: 'none'
-    }, '<')
+    }, '<');
 };
