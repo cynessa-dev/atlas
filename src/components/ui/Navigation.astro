@@ -2,29 +2,49 @@
 
 import brandLogo from '../../../public/favicon.svg';
 
+type NavItem = {
+    name: string,
+    href: string
+};
+
+const items: NavItem[] = [
+    { name: 'My Philosophy', href: '#mission' },
+    { name: 'About Me', href: '#about' },
+    { name: 'What I Do', href: '#skills' },
+    { name: 'Curated Works', href: '#projects' },
+    { name: 'Contact', href: '#connect' },
+];
+
 ---
 
 
-<nav class="fixed top-4 right-1/2 translate-x-1/2 z-50 flex items-center px-4 py-2 w-[28%] bg-zinc-900/60 text-zinc-200">
-    <div class="flex justify-center items-center shrink-0 size-8">
-        <img 
-            src={brandLogo.src}
-            alt="Christian Mamplata"
-            class="w-full h-full object-contain"
-        />
+<header class="fixed top-4 right-1/2 translate-x-1/2 z-50 flex flex-col justify-center w-[28%] bg-zinc-900/80 text-zinc-200 rounded-xs">
+    <nav class="flex items-center px-4 py-2 w-full">
+        <div class="flex justify-center items-center shrink-0 size-8">
+            <img 
+                src={brandLogo.src}
+                alt="Christian Mamplata"
+                class="w-full h-full object-contain"
+            />
+        </div>
+        <div class="flex-1 text-xs">
+            <h1 class="font-mono text-center">Hello, World</h1>
+        </div>
+        <div class="flex justify-center items-center shrink-0 size-8">
+            <button class="button w-full h-full cursor-pointer">
+                M
+            </button>
+        </div>
+    </nav>
+    <div class="overflow-y-hidden max-h-0">
+        <ul>
+            {items.map((item) => (
+                <li>
+                    <a class="block px-3 py-4" href={item.href} target="_self">
+                        {item.name}
+                    </a>
+                </li>
+            ))}
+        </ul>
     </div>
-    <div class="flex-1 text-xs">
-        <h1 class="text-center">Hello, World</h1>
-    </div>
-    <div class="flex justify-center items-center shrink-0 size-8">
-        <img 
-            src={brandLogo.src}
-            alt="Christian Mamplata"
-            class="w-full h-full object-contain"
-        />
-    </div>
-</nav>
-
-<style>
-    * { outline: 1px solid red; }
-</style>
+</header>
