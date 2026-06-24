@@ -39,11 +39,13 @@ import Menu from '../components/ui/Menu.astro';
 
 <script>
 	import { initSmoothScroll } from "../scripts/smooth-scroll";
+	import { initHeader } from '../scripts/header';
 	import { initMenu } from '../scripts/menu';
 	import { initHero } from '../scripts/hero';
     
 
 	initSmoothScroll();
+	initHeader();
 	initMenu();
 	initHero();
 </script>
