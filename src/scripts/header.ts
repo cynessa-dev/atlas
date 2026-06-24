@@ -58,13 +58,15 @@ const playEntranceAnimation = () => {
 };
 
 const createMenuAnimation = () => {
+    const menuOptionsContainer = document.querySelector<HTMLElement>('[data-menu-options]');
+
     const lines = {
         top: getLine('top'),
         mid: getLine('mid'),
         bot: getLine('bot'),
     };
 
-    if (!lines.top || !lines.mid || !lines.bot) return;
+    if (!menuOptionsContainer || !lines.top || !lines.mid || !lines.bot) return;
 
     const topY = Number(lines.top.getAttribute('y'));
     const midY = Number(lines.mid.getAttribute('y'));
@@ -74,7 +76,7 @@ const createMenuAnimation = () => {
     const botMoveY = midY - botY;
 
     const duration = 0.3;
-    const ease = 'sine.in';
+    const ease = 'sine.inOut';
 
     menuTimeline
         .to(lines.top, {
@@ -84,6 +86,11 @@ const createMenuAnimation = () => {
         }, 0)
         .to(lines.bot, {
             y: botMoveY,
+            duration: duration,
+            ease: ease,
+        }, 0)
+        .to(menuOptionsContainer, {
+            maxHeight: menuOptionsContainer.scrollHeight,
             duration: duration,
             ease: ease,
         }, 0);
