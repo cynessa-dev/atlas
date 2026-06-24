@@ -75,8 +75,8 @@ const createMenuAnimation = () => {
     const topMoveY = midY - topY;
     const botMoveY = midY - botY;
 
-    const duration = 0.3;
-    const ease = 'sine.inOut';
+    const duration = 0.4;
+    const ease = 'expo.inOut';
 
     menuTimeline
         .to(lines.top, {
