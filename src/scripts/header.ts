@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { toggleOverlay } from './overlay';
 
 type MenuLine = 'top' | 'mid' | 'bot';
 
@@ -21,6 +22,7 @@ export const initHeader = () => {
 
 const handleMenuClick = () => {
     renderMenuIcon();
+    toggleOverlay();
 };
 
 // ====================
@@ -75,23 +77,23 @@ const createMenuAnimation = () => {
     const topMoveY = midY - topY;
     const botMoveY = midY - botY;
 
-    const duration = 0.4;
+    const easeDuration = 0.4;
     const ease = 'expo.inOut';
 
     menuTimeline
         .to(lines.top, {
             y: topMoveY,
-            duration: duration,
+            duration: easeDuration,
             ease: ease,
         }, 0)
         .to(lines.bot, {
             y: botMoveY,
-            duration: duration,
+            duration: easeDuration,
             ease: ease,
         }, 0)
         .to(menuOptionsContainer, {
             maxHeight: menuOptionsContainer.scrollHeight,
-            duration: duration,
+            duration: easeDuration,
             ease: ease,
         }, 0);
 };
