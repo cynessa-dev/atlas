@@ -41,7 +41,7 @@ const items: NavItem[] = [
         <ul>
             {items.map((item) => (
                 <li class="border-t border-zinc-800/60">
-                    <a class="block px-8 py-4" href={item.href} target="_self">
+                    <a class="block px-8 py-4 transition-colors duration-100 hover:bg-zinc-600/20" href={item.href} target="_self">
                         <div class="overflow-y-hidden">
                             <p class="text-sm" data-menu-option>{item.name}</p>
                         </div>
