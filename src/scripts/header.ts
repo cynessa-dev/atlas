@@ -95,8 +95,22 @@ const createMenuAnimation = () => {
             maxHeight: menuOptionsContainer.scrollHeight,
             duration: easeDuration,
             ease: ease,
+            onStart: playMenuOptionsPopUp,
         }, 0);
 };
+
+const playMenuOptionsPopUp = () => {
+    const menuOptions = document.querySelectorAll('[data-menu-option]');
+
+    if (!menuOptions) return;
+
+    gsap.from(menuOptions, {
+        y: (_index, element) => element.getBoundingClientRect().height,
+        ease: 'sine.out',
+        duration: 0.5,
+        stagger: 0.05,
+    });
+}
 
 // ====================
 // UTILITY FUNCTIONS

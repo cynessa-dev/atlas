@@ -41,8 +41,10 @@ const items: NavItem[] = [
         <ul>
             {items.map((item) => (
                 <li class="border-t border-zinc-600/80">
-                    <a class="block px-3 py-4" href={item.href} target="_self">
-                        {item.name}
+                    <a class="block px-8 py-4" href={item.href} target="_self">
+                        <div class="overflow-y-hidden">
+                            <p class="text-sm" data-menu-option>{item.name}</p>
+                        </div>
                     </a>
                 </li>
             ))}
