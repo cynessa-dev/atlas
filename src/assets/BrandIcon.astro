@@ -1,0 +1,43 @@
+---
+
+const iconMap = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+]
+
+const viewX = 24
+const viewY = 24
+const tileSize = 4
+
+---
+
+<svg
+    viewBox=`0 0 ${viewX} ${viewY}`
+    width=24
+    height=24
+    aria-hidden="true"
+    class="outline-1 outline-red-500"
+>
+    {iconMap.map((row, y) => {
+        return (
+            row.map((cell, x) => {
+                if (cell === 0) return;
+                
+                return (
+                    <rect
+                        x={x * tileSize}
+                        y={y * tileSize}
+                        width={tileSize}
+                        height={tileSize}
+                        rx="1"
+                        fill="currentColor"
+                    />
+                );
+            })
+        );
+    })}
+</svg>

@@ -1,6 +1,6 @@
 ---
 
-import brandLogo from '../../../public/favicon.svg';
+import BrandIcon from '../../assets/BrandIcon.astro';
 import MenuIcon from '../../assets/MenuIcon.astro';
 
 type NavItem = {
@@ -25,11 +25,7 @@ const items: NavItem[] = [
 >
     <nav class="flex items-center px-4 py-2 w-full">
         <div class="flex justify-center items-center shrink-0 size-8">
-            <img 
-                src={brandLogo.src}
-                alt="Christian Mamplata"
-                class="w-full h-full object-contain"
-            />
+            <BrandIcon />
         </div>
         <div class="flex-1 text-xs">
             <h1 class="font-mono text-center whitespace-nowrap">Hello, World</h1>
