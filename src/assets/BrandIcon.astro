@@ -2,11 +2,11 @@
 
 const iconMap = [
     [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 0, 1, 0],
+    [1, 0, 1, 0, 1, 0],
+    [1, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1],
 ]
 
 const viewX = 24
@@ -20,7 +20,6 @@ const tileSize = 4
     width=24
     height=24
     aria-hidden="true"
-    class="outline-1 outline-red-500"
 >
     {iconMap.map((row, y) => {
         return (
@@ -33,7 +32,7 @@ const tileSize = 4
                         y={y * tileSize}
                         width={tileSize}
                         height={tileSize}
-                        rx="1"
+                        rx="0"
                         fill="currentColor"
                     />
                 );
