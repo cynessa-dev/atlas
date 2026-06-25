@@ -61,6 +61,7 @@ const playEntranceAnimation = () => {
 
 const createMenuAnimation = () => {
     const menuOptionsContainer = document.querySelector<HTMLElement>('[data-menu-options]');
+    const menuOptions = document.querySelectorAll('[data-menu-option]');
 
     const lines = {
         top: getLine('top'),
@@ -68,7 +69,7 @@ const createMenuAnimation = () => {
         bot: getLine('bot'),
     };
 
-    if (!menuOptionsContainer || !lines.top || !lines.mid || !lines.bot) return;
+    if (!menuOptionsContainer || !menuOptions || !lines.top || !lines.mid || !lines.bot) return;
 
     const topY = Number(lines.top.getAttribute('y'));
     const midY = Number(lines.mid.getAttribute('y'));
@@ -95,22 +96,14 @@ const createMenuAnimation = () => {
             maxHeight: menuOptionsContainer.scrollHeight,
             duration: easeDuration,
             ease: ease,
-            onStart: playMenuOptionsPopUp,
-        }, 0);
+        }, 0)
+        .from(menuOptions, {
+            y: (_index, element) => element.getBoundingClientRect().height,
+            ease: 'sine.out',
+            duration: 0.25,
+            stagger: 0.03,
+        }, 0.1);
 };
-
-const playMenuOptionsPopUp = () => {
-    const menuOptions = document.querySelectorAll('[data-menu-option]');
-
-    if (!menuOptions) return;
-
-    gsap.from(menuOptions, {
-        y: (_index, element) => element.getBoundingClientRect().height,
-        ease: 'sine.out',
-        duration: 0.5,
-        stagger: 0.05,
-    });
-}
 
 // ====================
 // UTILITY FUNCTIONS
