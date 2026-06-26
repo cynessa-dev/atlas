@@ -24,31 +24,8 @@ const bootMessages: bootMessage[] = [
 
 <section id="hero" class="relative flex items-center min-w-screen min-h-screen overflow-hidden select-none">
     <div id="props" class="absolute w-full h-full origin-[50%_50%]">
-        <div id="laptop" class="absolute top-1/2 left-1/2 -translate-1/2 w-full h-full lg:px-64 lg:py-16">
-            <div id="laptop-screen" class="px-6 py-6 h-full bg-gray-900 lg:py-4">
-                <div class="jetbrains-mono-400 text-zinc-200" data-boot-container>
-                    {bootMessages.map((boot) => (
-                        <p 
-                            data-boot-message
-                            data-boot-loading={boot.loading ?? false}
-                            data-boot-seconds={boot.seconds ?? 1.0}
-                        >
-                            {boot.message}
-                        </p>
-                    ))}
-                </div>
-                <div id="kernel" class="jetbrains-mono-400 hidden justify-center items-center w-full h-full">
-                    <h1 class="text-zinc-200 text-6xl font-black md:text-8xl" aria-label="ChanOS Kernel Logo">ChanOS</h1>
-                </div>
-                <div id="tagline" class="hidden flex-col justify-center items-center gap-y-2 w-full h-full text-zinc-200">
-                    <h1 class="text-3xl text-center font-bold lg:text-4xl" aria-label="Tagline">Building software beyond functionality</h1>
-                    <div class="flex items-center gap-x-2 px-4 w-full lg:px-24">
-                        <LineTrailing />
-                        <p class="text-gray-400 text-sm tracking-wider lg:text-lg">Builder of Interactive Experiences</p>
-                        <LineTrailing />
-                    </div>
-                </div>
-            </div>
+        <div id="device-container" class="bg-red-500 absolute w-full h-full">
+            
         </div>
     </div>
     <div id="contents">
