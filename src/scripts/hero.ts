@@ -14,17 +14,16 @@ export const initHero = () => {
 
     if (!propsContainer) return; // Prop container is essential to animate, otherwise exit
 
-    playEntranceAnimation();
     playBootMessages();
     playScrollAnimation();
 };
 
-const playEntranceAnimation = () => {
-    // Subtle zoom in to give importance to the subject
+const playSubtleZoomOutAnimation = () => {
+    // Subtle zoom out to give a little context on what the user has landed on
     gsap.to(propsContainer, {
-        scale: 1.05,
-        duration: 5,
-        ease: 'sine.out',
+        scale: 0.80,
+        duration: 5.0,
+        ease: 'sine.inOut',
     });
 };
 
@@ -79,9 +78,12 @@ const playBootMessages = () => {
             autoAlpha: 0,
             duration: 0.1,
             ease: 'sine.out',
-            onComplete: () => bootContainer.remove(),
-        })
-        .call(playKernelAnimation);
+            onComplete: () => {
+                playKernelAnimation();
+                
+                bootContainer.remove();
+            },
+        });
 };
 
 const playKernelAnimation = () => {
@@ -108,19 +110,20 @@ const playKernelAnimation = () => {
 };
 
 const playTaglineAnimation = () => {
-    const taglineContainer = document.getElementById('tagline');
+    const heroContentContainer = document.getElementById('hero-content');
 
-    if (!taglineContainer) return;
+    if (!heroContentContainer) return;
 
     const timeline = gsap.timeline({
-        onStart: () => showFlex(taglineContainer)
+        onStart: () => showFlex(heroContentContainer)
     });
 
-    timeline.from(taglineContainer, {
+    timeline.from(heroContentContainer, {
         autoAlpha: 0,
         duration: 0.2,
         ease: 'sine.in',
     })
+    .call(playSubtleZoomOutAnimation);
 };
 
 const playScrollAnimation = () => {
