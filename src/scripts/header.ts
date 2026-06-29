@@ -3,25 +3,68 @@ import { toggleOverlay } from './overlay';
 
 type MenuLine = 'top' | 'mid' | 'bot';
 
-const menuTimeline = gsap.timeline({ paused: true });
-
-let menuButton: HTMLButtonElement | null = null
-let icon: HTMLElement | null = null
-
-export const initHeader = () => {
-    menuButton = document.querySelector('[data-menu-button]');
-    icon = document.querySelector('[data-menu-icon]');
-
-    if (!menuButton || !icon) return;
-
-    menuButton.addEventListener('click', handleMenuClick)
-
-    createMenuAnimation();
-    playEntranceAnimation();
+type HeaderElements = {
+    headerElement: HTMLElement;
+    buttonElement: HTMLButtonElement;
+    iconElement: HTMLElement;
+    optionsContainerElement: HTMLElement;
+    optionElements: NodeListOf<HTMLElement>;
 };
 
-const handleMenuClick = () => {
-    renderMenuIcon();
+type MenuIconY = {
+    topLine: HTMLElement;
+    botLine: HTMLElement;
+    topMoveY: gsap.TweenValue;
+    botMoveY: gsap.TweenValue;
+};
+
+const MENU_ANIMATION_DURATION = 0.4;
+const MENU_ANIMATION_EASE = 'expo.inOut';
+
+export const initHeader = () => {
+    const elements = getHeaderElements();
+
+    if (!elements) return;
+
+    const menuTimeline = gsap.timeline({ paused: true });
+
+    elements.buttonElement.addEventListener('click', () => {
+        handleMenuClick(menuTimeline, elements.buttonElement);
+    });
+
+    createMenuAnimation(menuTimeline, elements);
+
+    window.addEventListener('hero:intro-complete', () => {
+        playEntranceAnimation(elements.headerElement);
+    }, { once: true });
+};
+
+const getHeaderElements = (): HeaderElements | null => {
+    const headerElement = document.getElementById('header');
+    const buttonElement = document.querySelector<HTMLButtonElement>('[data-menu-button]');
+    const iconElement = document.querySelector<HTMLElement>('[data-menu-icon]');
+    const optionsContainerElement = document.querySelector<HTMLElement>('[data-menu-options]');
+    const optionElements = document.querySelectorAll<HTMLElement>('[data-menu-option]');
+
+    if (
+        !headerElement ||
+        !buttonElement ||
+        !iconElement ||
+        !optionsContainerElement ||
+        optionElements.length === 0
+    ) return null;
+
+    return {
+        headerElement,
+        buttonElement,
+        iconElement,
+        optionsContainerElement,
+        optionElements
+    };
+};
+
+const handleMenuClick = (menuTimeline: gsap.core.Timeline, buttonElement: HTMLButtonElement) => {
+    renderMenuIcon(menuTimeline, buttonElement);
     toggleOverlay();
 };
 
@@ -29,47 +72,86 @@ const handleMenuClick = () => {
 // ANIMATIONS
 // ====================
 
-const renderMenuIcon = () => {
-    const isOpen = toggleMenu();
+const renderMenuIcon = (menuTimeline: gsap.core.Timeline, buttonElement: HTMLButtonElement) => {
+    const isOpen = toggleMenu(buttonElement);
 
     isOpen ? menuTimeline.play() : menuTimeline.reverse();
 };
 
-const playEntranceAnimation = () => {
-    const header = document.getElementById('header');
+const createMenuAnimation = (
+    menuTimeline: gsap.core.Timeline,
+    elements: HeaderElements
+) => {
+    const { iconElement, optionsContainerElement, optionElements } = elements;
 
-    if (!header) return;
+    const iconConfig = getIconAnimationConfig(iconElement);
 
+    if (!iconConfig) return;
+
+    menuTimeline
+        .to(iconConfig.topLine, {
+            y: iconConfig.topMoveY,
+            duration: MENU_ANIMATION_DURATION,
+            ease: MENU_ANIMATION_EASE,
+        }, 0)
+        .to(iconConfig.botLine, {
+            y: iconConfig.botMoveY,
+            duration: MENU_ANIMATION_DURATION,
+            ease: MENU_ANIMATION_EASE,
+        }, 0)
+        .to(optionsContainerElement, {
+            maxHeight: optionsContainerElement.scrollHeight,
+            duration: MENU_ANIMATION_DURATION,
+            ease: MENU_ANIMATION_EASE,
+        }, 0)
+        .from(optionElements, {
+            y: (_index, element) => element.getBoundingClientRect().height,
+            ease: 'sine.out',
+            duration: 0.25,
+            stagger: 0.03,
+        }, 0.1);
+};
+
+const playEntranceAnimation = (headerElement: HTMLElement) => {
     const timeline = gsap.timeline();
 
-    const headerRect = header.getBoundingClientRect();
+    const headerRect = headerElement.getBoundingClientRect();
     const defaultTop = 0;
     const startY = defaultTop - headerRect.height;
 
     timeline
-        .from(header, {
+        .set(headerElement, {
             top: startY,
+            autoAlpha: 1,
+        })
+        .to(headerElement, {
+            top: headerRect.y,
             duration: 0.3,
             ease: 'sine.out',
         })
-        .from(header, {
+        .from(headerElement, {
             width: 0,
             duration: 0.3,
             ease: 'sine.out'
         });
 };
 
-const createMenuAnimation = () => {
-    const menuOptionsContainer = document.querySelector<HTMLElement>('[data-menu-options]');
-    const menuOptions = document.querySelectorAll('[data-menu-option]');
+// ====================
+// UTILITY FUNCTIONS
+// ====================
 
+const getLine = (icon: HTMLElement, line: MenuLine) => {
+    return icon.querySelector<HTMLElement>(`[data-menu-line=${line}]`) ?? null;
+}
+
+const getIconAnimationConfig = (iconElement: HTMLElement): MenuIconY | null => {
     const lines = {
-        top: getLine('top'),
-        mid: getLine('mid'),
-        bot: getLine('bot'),
+        top: getLine(iconElement, 'top'),
+        mid: getLine(iconElement, 'mid'),
+        bot: getLine(iconElement, 'bot'),
     };
 
-    if (!menuOptionsContainer || !menuOptions || !lines.top || !lines.mid || !lines.bot) return;
+    if (!lines.top || !lines.mid || !lines.bot) return null;
 
     const topY = Number(lines.top.getAttribute('y'));
     const midY = Number(lines.mid.getAttribute('y'));
@@ -78,50 +160,19 @@ const createMenuAnimation = () => {
     const topMoveY = midY - topY;
     const botMoveY = midY - botY;
 
-    const easeDuration = 0.4;
-    const ease = 'expo.inOut';
-
-    menuTimeline
-        .to(lines.top, {
-            y: topMoveY,
-            duration: easeDuration,
-            ease: ease,
-        }, 0)
-        .to(lines.bot, {
-            y: botMoveY,
-            duration: easeDuration,
-            ease: ease,
-        }, 0)
-        .to(menuOptionsContainer, {
-            maxHeight: menuOptionsContainer.scrollHeight,
-            duration: easeDuration,
-            ease: ease,
-        }, 0)
-        .from(menuOptions, {
-            y: (_index, element) => element.getBoundingClientRect().height,
-            ease: 'sine.out',
-            duration: 0.25,
-            stagger: 0.03,
-        }, 0.1);
+    return {
+        topLine: lines.top,
+        botLine: lines.bot,
+        topMoveY,
+        botMoveY
+    };
 };
 
-// ====================
-// UTILITY FUNCTIONS
-// ====================
-
-const getLine = (line: MenuLine) => {
-    if (!icon) return;
-    
-    return icon.querySelector(`[data-menu-line=${line}]`) ?? null;
-}
-
-const toggleMenu = () => {
-    if (!menuButton) return;
-
-    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+const toggleMenu = (buttonElement: HTMLButtonElement) => {
+    const isOpen = buttonElement.getAttribute('aria-expanded') === 'true';
     const nextState = !isOpen;
 
-    menuButton.setAttribute('aria-expanded', String(nextState));
+    buttonElement.setAttribute('aria-expanded', String(nextState));
 
     return nextState;
 };
