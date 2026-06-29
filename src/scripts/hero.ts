@@ -1,131 +1,129 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import { showFlex } from './utility';
-
 gsap.registerPlugin(ScrollTrigger);
 
-let propsContainer: HTMLElement | null = null
-
-export const initHero = () => {
-    // Get the prop container instead of each children to scale evenly
-    propsContainer = document.getElementById('props');
-
-    if (!propsContainer) return; // Prop container is essential to animate, otherwise exit
-
-    playBootMessages();
-    playScrollAnimation();
+type HeroElements = {
+    propsElement: HTMLElement;
+    bootContainerElement: HTMLElement;
+    bootMessageElements: NodeListOf<HTMLElement>;
+    kernelElement: HTMLElement;
+    heroContentElement: HTMLElement;
 };
 
-const playSubtleZoomOutAnimation = () => {
+const LOADING_ICONS = ['|', '/', '-', '\\'];
+const SPINNER_INTERVAL_MS = 50;
+
+export const initHero = () => {
+    const elements = getHeroElements();
+
+    if (!elements) return;
+
+    playAnimations(elements);
+};
+
+const getHeroElements = (): HeroElements | null => {
+    const propsElement = document.getElementById('props');
+    const bootContainerElement = document.querySelector<HTMLElement>('[data-boot-container]');
+    const bootMessageElements = document.querySelectorAll<HTMLElement>('[data-boot-message]');
+    const kernelElement = document.getElementById('kernel');
+    const heroContentElement = document.getElementById('hero-content');
+
+    if (
+        !propsElement ||
+        !bootContainerElement ||
+        bootMessageElements.length === 0 ||
+        !kernelElement ||
+        !heroContentElement
+    ) return null;
+
+    return {
+        propsElement,
+        bootContainerElement,
+        bootMessageElements,
+        kernelElement,
+        heroContentElement,
+    };
+};
+
+const playAnimations = (elements: HeroElements) => {
+    const introTimeline = gsap.timeline();
+
+    animateBootMessages(introTimeline, elements.bootContainerElement, elements.bootMessageElements);
+    animateKernel(introTimeline, elements.kernelElement);
+    animateTagline(introTimeline, elements.heroContentElement);
+    animateZoomOut(introTimeline, elements.propsElement);
+
+    animateScroll();
+};
+
+const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLElement) => {
     // Subtle zoom out to give a little context on what the user has landed on
-    gsap.to(propsContainer, {
+    introTimeline.to(propsElement, {
         scale: 0.80,
         duration: 5.0,
         ease: 'sine.inOut',
     });
 };
 
-const playBootMessages = () => {
-    const bootContainer = document.querySelector<HTMLElement>('[data-boot-container]');
-    const messages = document.querySelectorAll<HTMLElement>('[data-boot-message]');
-    
-    if (!bootContainer || messages.length === 0) return;
+const animateBootMessages = (
+    introTimeline: gsap.core.Timeline,
+    bootContainerElement: HTMLElement,
+    bootMessageElements: NodeListOf<HTMLElement>,
+) => {
 
-    const loadingIcon = ['|', '/', '-', '\\'];
-
-    const timeline = gsap.timeline();
-
-    messages.forEach((message) => {
+    bootMessageElements.forEach((message) => {
         const loading = message.dataset.bootLoading === 'true';
-        const seconds = Number(message.dataset.bootSeconds);
+        const duration = Number(message.dataset.bootSeconds);
 
-        timeline.from(message, {
+        introTimeline.from(message, {
             autoAlpha: 0,
             duration: 0.2,
             ease: 'sine.in'
         });
 
         if (loading) {
-            const spinnerSpeed = 50;
-            const originalText = message.textContent ?? '';
-            let lastUpdate = 0;
-            let i = 0;
-
-            timeline.to({}, {
-                duration: seconds,
-                onUpdate: () => {
-                    if (!loading) return;
-
-                    const now = performance.now();
-
-                    if (now - lastUpdate < spinnerSpeed) return;
-
-                    lastUpdate = now;
-                    message.textContent = originalText + loadingIcon[i];
-                    i = (i + 1) % loadingIcon.length;
-                },
-                onComplete: () => {
-                    message.textContent = originalText + '... OK';
-                }
-            });
+            animateLoading(introTimeline, message, duration);
         }
     });
 
-    timeline.
-        to(bootContainer, {
+    introTimeline
+        .to(bootContainerElement, {
             autoAlpha: 0,
             duration: 0.1,
             ease: 'sine.out',
             onComplete: () => {
-                playKernelAnimation();
-                
-                bootContainer.remove();
+                bootContainerElement.remove();
             },
         });
 };
 
-const playKernelAnimation = () => {
-    const kernelContainer = document.getElementById('kernel');
-
-    if (!kernelContainer) return;
-
-    const timeline = gsap.timeline({
-        onStart: () => showFlex(kernelContainer)
-    });
-
-    timeline.
-        from(kernelContainer, {
+const animateKernel = (introTimeline: gsap.core.Timeline, kernelElement: HTMLElement) => {
+    introTimeline
+        .set(kernelElement, { display: 'flex' })
+        .from(kernelElement, {
             autoAlpha: 0,
             duration: 0.2,
         })
-        .to(kernelContainer, {
+        .to(kernelElement, {
             autoAlpha: 0,
             duration: 0.2,
             delay: 1.0,
-            onComplete: () => kernelContainer.remove(),
-        })
-        .call(playTaglineAnimation);
+            onComplete: () => kernelElement.remove(),
+        });
 };
 
-const playTaglineAnimation = () => {
-    const heroContentContainer = document.getElementById('hero-content');
-
-    if (!heroContentContainer) return;
-
-    const timeline = gsap.timeline({
-        onStart: () => showFlex(heroContentContainer)
-    });
-
-    timeline.from(heroContentContainer, {
-        autoAlpha: 0,
-        duration: 0.2,
-        ease: 'sine.in',
-    })
-    .call(playSubtleZoomOutAnimation);
+const animateTagline = (introTimeline: gsap.core.Timeline, heroContentElement: HTMLElement) => {
+    introTimeline
+        .set(heroContentElement, { display: 'flex' })
+        .from(heroContentElement, {
+            autoAlpha: 0,
+            duration: 0.2,
+            ease: 'sine.in',
+        });
 };
 
-const playScrollAnimation = () => {
+const animateScroll = () => {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: '#hero',
@@ -136,16 +134,38 @@ const playScrollAnimation = () => {
         }
     });
 
-    timeline.to('#laptop-screen', {
+    timeline.to('#device-screen', {
         scale: 2.0,
         transformOrigin: 'center center',
         ease: 'none',
     });
 
-    timeline.to('#tagline', {
+    timeline.to('#hero-content', {
         scale: 3.0,
         autoAlpha: 0,
         transformOrigin: 'center center',
         ease: 'none'
     }, '<');
+};
+
+const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElement, duration: number) => {
+    const originalText = messageElement.textContent ?? '';
+    let lastUpdate = 0;
+    let frameIndex = 0;
+
+    timeline.to({}, {
+        duration,
+        onUpdate: () => {
+            const now = performance.now();
+
+            if (now - lastUpdate < SPINNER_INTERVAL_MS) return;
+
+            lastUpdate = now;
+            messageElement.textContent = originalText + LOADING_ICONS[frameIndex];
+            frameIndex = (frameIndex + 1) % LOADING_ICONS.length;
+        },
+        onComplete: () => {
+            messageElement.textContent = originalText + '... OK';
+        }
+    });
 };
