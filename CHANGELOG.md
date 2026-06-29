@@ -4,6 +4,21 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.5.1
+
+*June 29, 2026 - 21:32*
+
+I did some major style refactoring after laying out the contents. Additionally, I have upgraded the major framework, Astro, to a newer version at the time of writing this.
+
+**WHAT'S NEW?**
+
+- Astro upgrade from `v6.4.7` to `v7.0.3`!
+- New stylized header with menu bar for easy navigation
+- New hero look complete with animations!
+- Hero now has a sequence of `BIOS Boot up -> Kernel or Brand Display -> Hero Content` to allow the webpage prepare, while keeping the user engage by showing something is happening.
+- Overlay is placed to blur the main area except the header to avoid visual clutter.
+- Added new fonts `IBM Plex Sans` for all content, and `Sometype Mono` for technical and special contents.
+
 ## v0.5.0
 
 *June 17, 2026 - 13:11*
