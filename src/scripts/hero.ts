@@ -2,7 +2,6 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { showFlex } from './utility';
-import { setMenuOpen } from './menu';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -134,8 +133,6 @@ const playScrollAnimation = () => {
             end: '+=1500',
             pin: true,
             scrub: 1,
-            onEnter: () => setMenuOpen(false),
-            onLeaveBack: () => setMenuOpen(true),
         }
     });
 
