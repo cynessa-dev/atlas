@@ -9,6 +9,7 @@ type HeaderElements = {
     iconElement: HTMLElement;
     optionsContainerElement: HTMLElement;
     optionElements: NodeListOf<HTMLElement>;
+    overlayElement: HTMLElement;
 };
 
 type MenuIconY = {
@@ -28,10 +29,7 @@ export const initHeader = () => {
 
     const menuTimeline = gsap.timeline({ paused: true });
 
-    elements.buttonElement.addEventListener('click', () => {
-        handleMenuClick(menuTimeline, elements.buttonElement);
-    });
-
+    initClicks(elements.buttonElement, elements.overlayElement, menuTimeline);
     createMenuAnimation(menuTimeline, elements);
 
     window.addEventListener('hero:intro-complete', () => {
@@ -45,13 +43,15 @@ const getHeaderElements = (): HeaderElements | null => {
     const iconElement = document.querySelector<HTMLElement>('[data-menu-icon]');
     const optionsContainerElement = document.querySelector<HTMLElement>('[data-menu-options]');
     const optionElements = document.querySelectorAll<HTMLElement>('[data-menu-option]');
+    const overlayElement = document.getElementById('overlay');
 
     if (
         !headerElement ||
         !buttonElement ||
         !iconElement ||
         !optionsContainerElement ||
-        optionElements.length === 0
+        optionElements.length === 0 ||
+        !overlayElement
     ) return null;
 
     return {
@@ -59,8 +59,23 @@ const getHeaderElements = (): HeaderElements | null => {
         buttonElement,
         iconElement,
         optionsContainerElement,
-        optionElements
+        optionElements,
+        overlayElement,
     };
+};
+
+const initClicks = (
+    buttonElement: HTMLButtonElement,
+    overlayElement: HTMLElement,
+    menuTimeline: gsap.core.Timeline
+) => {
+    buttonElement.addEventListener('click', () => {
+        handleMenuClick(menuTimeline, buttonElement);
+    });
+    
+    overlayElement.addEventListener('click', () => {
+        handleMenuClick(menuTimeline, buttonElement);
+    });
 };
 
 const handleMenuClick = (menuTimeline: gsap.core.Timeline, buttonElement: HTMLButtonElement) => {
