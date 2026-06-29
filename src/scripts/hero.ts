@@ -1,6 +1,8 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { initBrandIcon } from './brandIcon';
+
 gsap.registerPlugin(ScrollTrigger);
 
 type HeroElements = {
@@ -109,6 +111,7 @@ const animateKernel = (introTimeline: gsap.core.Timeline, kernelElement: HTMLEle
         .from(kernelElement, {
             autoAlpha: 0,
             duration: 0.2,
+            onStart: initBrandIcon,
         })
         .to(kernelElement, {
             autoAlpha: 0,

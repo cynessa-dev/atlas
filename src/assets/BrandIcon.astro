@@ -25,6 +25,7 @@ const tileSize = 2
     viewBox=`0 0 ${viewX} ${viewY}`
     class="w-full h-full"
     aria-hidden="true"
+    data-brand-icon
 >
     {iconMap.map((row, y) => {
         return (
@@ -39,6 +40,7 @@ const tileSize = 2
                         height={tileSize}
                         rx="0"
                         fill="currentColor"
+                        data-brand-pixel
                     />
                 );
             })
