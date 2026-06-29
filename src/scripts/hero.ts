@@ -11,6 +11,8 @@ type HeroElements = {
     heroContentElement: HTMLElement;
 };
 
+const HERO_INTRO_COMPLETE_EVENT = 'hero:intro-complete';
+
 const LOADING_ICONS = ['|', '/', '-', '\\'];
 const SPINNER_INTERVAL_MS = 50;
 
@@ -63,6 +65,9 @@ const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLEle
         scale: 0.80,
         duration: 5.0,
         ease: 'sine.inOut',
+        onComplete: () => {
+            window.dispatchEvent(new CustomEvent(HERO_INTRO_COMPLETE_EVENT));
+        },
     });
 };
 
