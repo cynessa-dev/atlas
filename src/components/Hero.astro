@@ -25,7 +25,7 @@ const bootMessages: bootMessage[] = [
 <section id="hero" class="relative flex items-center min-w-screen min-h-screen overflow-hidden select-none">
     <div id="props" class="absolute w-full h-full origin-[50%_50%]">
         <div id="device-container" class="absolute w-full h-full">
-            <div id="device-screen" class="px-6 py-4 w-full h-full bg-zinc-950">
+            <div id="device-screen" class="px-3 py-4 w-full h-full bg-zinc-950 lg:px-6">
                 <div class="font-mono text-zinc-200" data-boot-container>
                     {bootMessages.map((boot) => (
                         <p 
@@ -42,23 +42,26 @@ const bootMessages: bootMessage[] = [
                         <BrandIcon />
                     </div>
                 </div>
-                <div id="hero-content" class="hidden justify-center items-center gap-y-2 w-full h-full text-zinc-200">
-                    <div>
-                        <div>
-                            <p>[ I AM CHRISTIAN MAMPLATA ]</p>
+                <div id="hero-content" class="hidden w-full h-full text-zinc-200">
+                    <div class="grid grid-cols-6 mt-auto mb-6 px-0 lg:px-8 lg:grid-cols-12 lg:mb-12">
+                        <div class="col-start-1 col-span-6 uppercase lg:col-span-8 xl:col-span-6">
+                            <p class="text-xs tracking-wider md:text-sm xl:text-xs">[ I AM CHRISTIAN MAMPLATA ]</p>
+                            <div class="mt-6">
+                                <h1 class="text-3xl font-bold md:text-5xl lg:text-6xl">BUILDING SOFTWARE WORTH REMEMBERING, ONE BIT AT A TIME.</h1>
+                            </div>
                         </div>
-                        <div class="uppercase">
-                            <h1>BUILDING SOFTWARE WORTH REMEMBERING, ONE BIT AT A TIME.</h1>
+                        <div class="flex col-start-1 col-span-6 mt-6 lg:col-start-10 lg:col-span-4 lg:mt-0">
+                            <p class="mt-auto text-md leading-snug tracking-wide md:text-lg lg:text-xl">I craft products, games, and digital experiences that go beyond the screen. With lots of love, a hint of curiosity, and a little spark that's worth remembering.</p>
                         </div>
-                    </div>
-                    <div>
-                        <p>I craft products, games, and digital experiences that connect more deeply and go beyond the screen. With lots of love, a hint of curiosity, and a little spark that's worth remembering.</p>
-                    </div>
-                    <div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    * {
+        outline: 1px solid red;
+    }
+</style>
