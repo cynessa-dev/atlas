@@ -53,10 +53,12 @@ const getHeroElements = (): HeroElements | null => {
 const playAnimations = (elements: HeroElements) => {
     const introTimeline = gsap.timeline();
 
+    toggleScroll(introTimeline, false);
     animateBootMessages(introTimeline, elements.bootContainerElement, elements.bootMessageElements);
     animateKernel(introTimeline, elements.kernelElement);
     animateTagline(introTimeline, elements.heroContentElement);
     animateZoomOut(introTimeline, elements.propsElement);
+    toggleScroll(introTimeline, true);
 
     animateScroll();
 };
@@ -72,6 +74,13 @@ const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLEle
         },
     });
 };
+
+const toggleScroll = (introTimeline: gsap.core.Timeline, isScroll: boolean) => {
+    introTimeline
+        .to('body', {
+            overflow: isScroll ? 'auto' : 'hidden',
+        });
+}
 
 const animateBootMessages = (
     introTimeline: gsap.core.Timeline,
