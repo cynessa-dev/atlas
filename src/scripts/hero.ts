@@ -169,7 +169,7 @@ const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElemen
             if (now - lastUpdate < SPINNER_INTERVAL_MS) return;
 
             lastUpdate = now;
-            messageElement.textContent = originalText + LOADING_ICONS[frameIndex];
+            messageElement.textContent = originalText + ' ' + LOADING_ICONS[frameIndex];
             frameIndex = (frameIndex + 1) % LOADING_ICONS.length;
         },
         onComplete: () => {
