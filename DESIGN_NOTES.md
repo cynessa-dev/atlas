@@ -13,7 +13,7 @@ Its purpose is to preserve the vision behind the project and serve as a compass 
 Useful resources and inspirations.
 
 * [Laws of UX](https://lawsofux.com/)
-* Jakob's Law
+* [Lama Lama](https://lamalama.com/)
 
 ---
 
