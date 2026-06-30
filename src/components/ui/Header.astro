@@ -28,7 +28,7 @@ const items: NavItem[] = [
             <BrandIcon />
         </div>
         <div class="flex-1 text-xs">
-            <h1 class="font-mono text-center whitespace-nowrap">Hello, World</h1>
+            <p class="font-mono text-center whitespace-nowrap">Hello, World</p>
         </div>
         <div class="flex justify-center items-center shrink-0 size-8">
             <button class="button w-full h-full cursor-pointer" aria-expanded="false" data-menu-button>
@@ -40,7 +40,7 @@ const items: NavItem[] = [
         <ul>
             {items.map((item) => (
                 <li class="border-t border-zinc-800/60">
-                    <a class="block px-8 py-4 transition-colors duration-200 hover:bg-zinc-600/20" href={item.href} target="_self">
+                    <a class="block px-8 py-4 transition-colors duration-200 hover:bg-zinc-600/20" href={item.href} target="_self" aria-label={item.name}>
                         <div class="overflow-y-hidden">
                             <p class="text-sm" data-menu-option>{item.name}</p>
                         </div>
