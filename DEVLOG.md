@@ -4,6 +4,26 @@ See the journey of me and Houston as we build project Mamplata! This will serve 
 
 ---
 
+## Massive Hero changes | June 30, 2026 | 13:57
+
+Hi! It's been a while since I last wrote. I got really busy with fixing the Hero section and making the layout nice to look at. Days has passed and still no idea, then a memory struck my head.
+
+> Artists learned by copying others, developers learned by doing the same stuff others did, and I learned that way too!
+
+When that memory came, I realized that I just need some inspiration. So I opened my browser and went to [Awwwards](https://www.awwwards.com/), where I browsed tons of portfolio and other websites. After a few hours of admiring other's work, [Lama Lama's design](https://lamalama.com/) was much more on point to my *taste*. I learned their ways of presentation, the hows and whys, and pretty much studying their works through research and debugging.
+
+    * { outline: 1px solid red; } /* Really did come in handy */
+
+I took a look at other sites, but it wasn't really clicking on me. So my work is currently inspired by **Lama Lama**, so they deserve the credit. **BUT**, of course I did not just blindly copied everything, I mixed some of my own spices to make it more personal, rather than another copy. I spent days and weeks studying and developing the Hero section, and when I was getting a hang on it, development faster than expected.
+
+Now I met another roadblock, to match the idea of story telling where the users see *my workspace*, I needed **3D Models**. Originally, I plan to just make it 2D or 2.5D, but I figured, why not get into 3D. It will look nicer and I really wanna try **Studio Wrong's Design**. Here's a link to their YouTube channel.
+
+[Studio Wrong][https://www.youtube.com/@StudioWrong]
+
+I really love their art style and character designs, it feels so cute and soft! Right now, I am following their [Stella’s Materialism¹²](https://www.youtube.com/playlist?list=PLRywp5XYjMBZmjXh5AQ3w6EGEwIlcEZNX) series.
+
+That's why I decided for this project to try and get into 3D Art using **Blender** and **Three.js**. This is my first time, so I will be doing my art with Studio Wrong's art style just to avoid creating a new one. At some point, I bet my body would naturally develop its own art style, so I wouldn't really have to worry about it now. I'll do some assets for the Hero section, and once I get a hang on it, I'll do more in other sections. That's all for now! Goodbye!
+
 ## The Hero has arrived! | June 08, 2026 | 14:00
 
 Hello, again! Today's report is the finished *initial* layout for the Hero section, along with the Header and Menu bar.
