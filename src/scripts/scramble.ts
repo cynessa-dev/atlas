@@ -1,5 +1,14 @@
 import gsap from 'gsap';
 
+export const animateScramble = (textElement: HTMLElement) => {
+    if (!textElement) return;
+
+    const originalText = textElement.textContent;
+
+    scrambleText(textElement);
+    unscrambleText(textElement, originalText);
+}; 
+
 const scrambleText = (textElement: HTMLElement) => {
     const symbols = '!<>\\/[]{}—=+*^?#';
     const characters = textElement.textContent.split('') || [];
