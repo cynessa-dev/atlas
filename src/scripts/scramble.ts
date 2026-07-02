@@ -27,6 +27,22 @@ const scrambleText = (textElement: HTMLElement) => {
     });
 };
 
+const unscrambleText = (textElement: HTMLElement, originalText: string) => {
+    const characters = textElement.textContent.split('') || [];
+    const timeline = gsap.timeline();
+
+    characters.forEach((_, index) => {
+        timeline.to({}, {
+            duration: 0.2,
+            onUpdate: () => {
+                characters[index] = originalText[index];
+
+                textElement.textContent = characters.toString();
+            },
+        });
+    });
+};
+
 const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
