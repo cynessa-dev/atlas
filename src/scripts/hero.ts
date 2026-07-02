@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { initBrandIcon } from './brandIcon';
+import { animateScramble } from './scramble';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,7 @@ type HeroElements = {
     bootMessageElements: NodeListOf<HTMLElement>;
     kernelElement: HTMLElement;
     heroContentElement: HTMLElement;
+    scrambleText: HTMLElement;
 };
 
 const HERO_INTRO_COMPLETE_EVENT = 'hero:intro-complete';
@@ -32,13 +34,15 @@ const getHeroElements = (): HeroElements | null => {
     const bootMessageElements = document.querySelectorAll<HTMLElement>('[data-boot-message]');
     const kernelElement = document.getElementById('kernel');
     const heroContentElement = document.getElementById('hero-content');
+    const scrambleText = document.querySelector<HTMLElement>('[data-scramble]');
 
     if (
         !propsElement ||
         !bootContainerElement ||
         bootMessageElements.length === 0 ||
         !kernelElement ||
-        !heroContentElement
+        !heroContentElement ||
+        !scrambleText
     ) return null;
 
     return {
@@ -47,6 +51,7 @@ const getHeroElements = (): HeroElements | null => {
         bootMessageElements,
         kernelElement,
         heroContentElement,
+        scrambleText,
     };
 };
 
@@ -56,7 +61,7 @@ const playAnimations = (elements: HeroElements) => {
     toggleScroll(introTimeline, false);
     animateBootMessages(introTimeline, elements.bootContainerElement, elements.bootMessageElements);
     animateKernel(introTimeline, elements.kernelElement);
-    animateTagline(introTimeline, elements.heroContentElement);
+    animateTagline(introTimeline, elements.heroContentElement, elements.scrambleText);
     animateZoomOut(introTimeline, elements.propsElement);
     toggleScroll(introTimeline, true);
 
@@ -130,13 +135,18 @@ const animateKernel = (introTimeline: gsap.core.Timeline, kernelElement: HTMLEle
         });
 };
 
-const animateTagline = (introTimeline: gsap.core.Timeline, heroContentElement: HTMLElement) => {
+const animateTagline = (
+    introTimeline: gsap.core.Timeline,
+    heroContentElement: HTMLElement,
+    scrambleText: HTMLElement
+) => {
     introTimeline
         .set(heroContentElement, { display: 'flex' })
         .from(heroContentElement, {
             autoAlpha: 0,
             duration: 0.2,
             ease: 'sine.in',
+            onComplete: () => animateScramble(scrambleText),
         });
 };
 
