@@ -2,23 +2,27 @@ import gsap from 'gsap';
 
 const scrambleText = (textElement: HTMLElement) => {
     const symbols = '!<>\\/[]{}—=+*^?#';
-    const characters = textElement.textContent?.split('') || [];
+    const characters = textElement.textContent.split('') || [];
     const timeline = gsap.timeline();
 
     // Clear the text content of the element
     textElement.textContent = '';
 
-    characters.forEach((char, index) => {
-        const currentText = textElement.textContent || '';
-        const randomIndex = getRandomInt(0, symbols.length - 1);
-        const symbol = symbols[randomIndex];
+    // Scramble the text first
+    characters.forEach((char) => {
+        // Whitespaces are always underscore to make the effect look natural, yet random
+        if (char === ' ') {
+            textElement.textContent += '_';
+            return;
+        }
 
-        timeline.to(textElement, {
-            textContent: currentText + symbol,
-            duration: 0.05,
-            onComplete: () => {
+        // Get a random symbol, if not a whitespace
+        const randomInt = getRandomInt(0, characters.length - 1);
+        const symbol = symbols.charAt(randomInt);
 
-            }
+        timeline.to({}, {
+            duration: 0.2,
+            onUpdate: () => textElement.textContent += symbol,
         });
     });
 };
