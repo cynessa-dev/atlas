@@ -1,5 +1,7 @@
 import gsap from 'gsap';
 
+const TYPEWRITER_SPEED = 0.01;
+
 export const animateScramble = (textElement: HTMLElement) => {
     if (!textElement) return;
 
@@ -11,7 +13,7 @@ export const animateScramble = (textElement: HTMLElement) => {
 
 const scrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) => {
     const symbols = '!<>\\/[]{}()=+*^?#';
-    const characters = (textElement.dataset.scramble ?? '').split('');
+    const characters = getScrambleDataset(textElement);
 
     characters.forEach((char, index) => {
         let symbol = '_'; // Default symbol for whitespaces
@@ -19,7 +21,7 @@ const scrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) =>
         if (char !== ' ') symbol = symbols[getRandomInt(0, symbols.length - 1)];
 
         timeline.to({}, {
-            duration: 0.01,
+            duration: TYPEWRITER_SPEED,
             onStart: () => {
                 characters[index] = symbol;
 
@@ -30,11 +32,11 @@ const scrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) =>
 };
 
 const unscrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) => {
-    const characters = (textElement.dataset.scramble ?? '').split('');
+    const characters = getScrambleDataset(textElement);
 
     characters.forEach((char, index) => {
         timeline.to({}, {
-            duration: 0.01,
+            duration: TYPEWRITER_SPEED,
             onStart: () => {
                 const currentText = textElement.textContent ?? '';
                 const updatedText = currentText.substring(0, index) + char + currentText.substring(index + 1);
@@ -47,4 +49,8 @@ const unscrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) 
 
 const getRandomInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const getScrambleDataset = (element: HTMLElement) => {
+    return (element.dataset.scramble ?? '').split('');
 };
