@@ -6,7 +6,7 @@ export const animateScramble = (textElement: HTMLElement) => {
     const timeline = gsap.timeline();
 
     scrambleText(textElement, timeline);
-    unscrambleText();
+    unscrambleText(textElement, timeline);
 }; 
 
 const scrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) => {
@@ -19,7 +19,7 @@ const scrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) =>
         if (char !== ' ') symbol = symbols[getRandomInt(0, symbols.length - 1)];
 
         timeline.to({}, {
-            duration: 0.02,
+            duration: 0.01,
             onStart: () => {
                 characters[index] = symbol;
 
@@ -29,8 +29,20 @@ const scrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) =>
     });
 };
 
-const unscrambleText = () => {
-    
+const unscrambleText = (textElement: HTMLElement, timeline: gsap.core.Timeline) => {
+    const characters = (textElement.dataset.scramble ?? '').split('');
+
+    characters.forEach((char, index) => {
+        timeline.to({}, {
+            duration: 0.01,
+            onStart: () => {
+                const currentText = textElement.textContent ?? '';
+                const updatedText = currentText.substring(0, index) + char + currentText.substring(index + 1);
+
+                textElement.textContent = updatedText;
+            },
+        });
+    });
 };
 
 const getRandomInt = (min: number, max: number) => {
