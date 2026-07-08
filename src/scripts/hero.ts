@@ -4,6 +4,7 @@ import SplitText from 'gsap/SplitText';
 
 import { initBrandIcon } from './brandIcon';
 import { animateScramble } from './scramble';
+import { animateLineFloat } from './lineFloat';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -148,8 +149,8 @@ const animateHero = (
         onComplete: () => animateScramble(scrambleText),
     });
 
-    animateTagline(introTimeline, heroTaglineElement);
-    animateDescription(introTimeline, heroDescriptionElement);
+    animateLineFloat(introTimeline, heroTaglineElement);
+    animateLineFloat(introTimeline, heroDescriptionElement, '<');
 }
 
 const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLElement) => {
@@ -193,31 +194,6 @@ const animateScroll = () => {
 // UTILITY ANIMATION
 // ====================
 
-const animateTagline = (introTimeline: gsap.core.Timeline, heroTaglineElement: HTMLElement) => {
-    const split = splitLines(heroTaglineElement);
-
-    introTimeline.from(split.lines, {
-        yPercent: 100,
-        scale: 0.9,
-        autoAlpha: 0,
-        duration: 0.4,
-        ease: 'sine.inOut',
-        stagger: 0.08,
-    });
-};
-
-const animateDescription = (introTimeline: gsap.core.Timeline, heroDescriptionElement: HTMLElement) => {
-    const split = splitLines(heroDescriptionElement);
-
-    introTimeline.from(split.lines, {
-        yPercent: 100,
-        autoAlpha: 0,
-        duration: 0.4,
-        ease: 'sine.inOut',
-        stagger: 0.08,
-    }, '<');
-};
-
 const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElement, duration: number) => {
     const originalText = messageElement.textContent ?? '';
     let lastUpdate = 0;
@@ -238,13 +214,4 @@ const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElemen
             messageElement.textContent = originalText + '... OK';
         }
     });
-};
-
-const splitLines = (element: HTMLElement): SplitText => {
-    const split = SplitText.create(element, {
-        type: 'lines',
-        mask: 'lines',
-    });
-
-    return split;
 };
