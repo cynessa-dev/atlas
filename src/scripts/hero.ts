@@ -1,17 +1,20 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import SplitText from 'gsap/SplitText';
 
 import { initBrandIcon } from './brandIcon';
 import { animateScramble } from './scramble';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 type HeroElements = {
     propsElement: HTMLElement;
     bootContainerElement: HTMLElement;
     bootMessageElements: NodeListOf<HTMLElement>;
     kernelElement: HTMLElement;
-    heroContentElement: HTMLElement;
+    heroContainerElement: HTMLElement;
+    heroTaglineElement: HTMLElement;
+    heroDescriptionElement: HTMLElement;
     scrambleText: HTMLElement;
 };
 
@@ -33,7 +36,9 @@ const getHeroElements = (): HeroElements | null => {
     const bootContainerElement = document.querySelector<HTMLElement>('[data-boot-container]');
     const bootMessageElements = document.querySelectorAll<HTMLElement>('[data-boot-message]');
     const kernelElement = document.getElementById('kernel');
-    const heroContentElement = document.getElementById('hero-content');
+    const heroContainerElement = document.querySelector<HTMLElement>('[data-hero-container]');
+    const heroTaglineElement = document.querySelector<HTMLElement>('[data-hero-tagline]');
+    const heroDescriptionElement = document.querySelector<HTMLElement>('[data-hero-description]');
     const scrambleText = document.querySelector<HTMLElement>('[data-scramble]');
 
     if (
@@ -41,7 +46,9 @@ const getHeroElements = (): HeroElements | null => {
         !bootContainerElement ||
         bootMessageElements.length === 0 ||
         !kernelElement ||
-        !heroContentElement ||
+        !heroContainerElement ||
+        !heroTaglineElement ||
+        !heroDescriptionElement ||
         !scrambleText
     ) return null;
 
@@ -50,7 +57,9 @@ const getHeroElements = (): HeroElements | null => {
         bootContainerElement,
         bootMessageElements,
         kernelElement,
-        heroContentElement,
+        heroContainerElement,
+        heroTaglineElement,
+        heroDescriptionElement,
         scrambleText,
     };
 };
@@ -61,24 +70,16 @@ const playAnimations = (elements: HeroElements) => {
     toggleScroll(introTimeline, false);
     animateBootMessages(introTimeline, elements.bootContainerElement, elements.bootMessageElements);
     animateKernel(introTimeline, elements.kernelElement);
-    animateTagline(introTimeline, elements.heroContentElement, elements.scrambleText);
+    animateHero(introTimeline, elements.heroContainerElement, elements.heroTaglineElement, elements.heroDescriptionElement, elements.scrambleText);
     animateZoomOut(introTimeline, elements.propsElement);
     toggleScroll(introTimeline, true);
 
     animateScroll();
 };
 
-const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLElement) => {
-    // Subtle zoom out to give a little context on what the user has landed on
-    introTimeline.to(propsElement, {
-        scale: 0.80,
-        duration: 5.0,
-        ease: 'sine.inOut',
-        onComplete: () => {
-            window.dispatchEvent(new CustomEvent(HERO_INTRO_COMPLETE_EVENT));
-        },
-    });
-};
+// ====================
+// ANIMATIONS
+// ====================
 
 const toggleScroll = (introTimeline: gsap.core.Timeline, isScroll: boolean) => {
     introTimeline
@@ -135,19 +136,32 @@ const animateKernel = (introTimeline: gsap.core.Timeline, kernelElement: HTMLEle
         });
 };
 
-const animateTagline = (
+const animateHero = (
     introTimeline: gsap.core.Timeline,
-    heroContentElement: HTMLElement,
+    heroContainerElement: HTMLElement,
+    heroTaglineElement: HTMLElement,
+    heroDescriptionElement: HTMLElement,
     scrambleText: HTMLElement
 ) => {
-    introTimeline
-        .set(heroContentElement, { display: 'flex' })
-        .from(heroContentElement, {
-            autoAlpha: 0,
-            duration: 0.2,
-            ease: 'sine.in',
-            onComplete: () => animateScramble(scrambleText),
-        });
+    introTimeline.set(heroContainerElement, {
+        visibility: 'visible',
+        onComplete: () => animateScramble(scrambleText),
+    });
+
+    animateTagline(introTimeline, heroTaglineElement);
+    animateDescription(introTimeline, heroDescriptionElement);
+}
+
+const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLElement) => {
+    // Subtle zoom out to give a little context on what the user has landed on
+    introTimeline.to(propsElement, {
+        scale: 0.80,
+        duration: 5.0,
+        ease: 'sine.inOut',
+        onComplete: () => {
+            window.dispatchEvent(new CustomEvent(HERO_INTRO_COMPLETE_EVENT));
+        },
+    });
 };
 
 const animateScroll = () => {
@@ -175,6 +189,35 @@ const animateScroll = () => {
     }, '<');
 };
 
+// ====================
+// UTILITY ANIMATION
+// ====================
+
+const animateTagline = (introTimeline: gsap.core.Timeline, heroTaglineElement: HTMLElement) => {
+    const split = splitLines(heroTaglineElement);
+
+    introTimeline.from(split.lines, {
+        yPercent: 100,
+        scale: 0.9,
+        autoAlpha: 0,
+        duration: 0.4,
+        ease: 'sine.inOut',
+        stagger: 0.08,
+    });
+};
+
+const animateDescription = (introTimeline: gsap.core.Timeline, heroDescriptionElement: HTMLElement) => {
+    const split = splitLines(heroDescriptionElement);
+
+    introTimeline.from(split.lines, {
+        yPercent: 100,
+        autoAlpha: 0,
+        duration: 0.4,
+        ease: 'sine.inOut',
+        stagger: 0.08,
+    }, '<');
+};
+
 const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElement, duration: number) => {
     const originalText = messageElement.textContent ?? '';
     let lastUpdate = 0;
@@ -195,4 +238,13 @@ const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElemen
             messageElement.textContent = originalText + '... OK';
         }
     });
+};
+
+const splitLines = (element: HTMLElement): SplitText => {
+    const split = SplitText.create(element, {
+        type: 'lines',
+        mask: 'lines',
+    });
+
+    return split;
 };
