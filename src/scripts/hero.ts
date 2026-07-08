@@ -157,7 +157,7 @@ const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLEle
     // Subtle zoom out to give a little context on what the user has landed on
     introTimeline.to(propsElement, {
         scale: 0.80,
-        duration: 5.0,
+        duration: 2.0,
         ease: 'sine.inOut',
         onComplete: () => {
             window.dispatchEvent(new CustomEvent(HERO_INTRO_COMPLETE_EVENT));
