@@ -84,7 +84,7 @@ const playAnimations = (elements: HeroElements) => {
 
 const toggleScroll = (introTimeline: gsap.core.Timeline, isScroll: boolean) => {
     introTimeline
-        .to('body', {
+        .set('body', {
             overflow: isScroll ? 'auto' : 'hidden',
         });
 }
