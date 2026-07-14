@@ -5,6 +5,7 @@
 Here are the materials you may refer to help you assist me better:
 
 - [Laws Of UX](https://lawsofux.com/)
+- [Messenger by Abeto](https://messenger.abeto.co/) — Reference for immersive world-building, playful exploration, atmosphere, and rewarding curiosity. Borrow its experience-design principles without requiring recruiters to navigate a game or WebGL experience to understand the portfolio.
 
 ## Purpose
 

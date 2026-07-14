@@ -14,6 +14,19 @@ Useful resources and inspirations.
 
 * [Laws of UX](https://lawsofux.com/)
 * [Lama Lama](https://lamalama.com/)
+* [Messenger by Abeto](https://messenger.abeto.co/)
+
+### MESSENGER BY ABETO
+
+Use Messenger as a reference for:
+
+* Building a small world that feels alive
+* Rewarding curiosity and exploration
+* Creating atmosphere through art direction, sound, and movement
+* Making interactions playful without overwhelming the visitor
+* Giving a digital experience a strong sense of place and personality
+
+The portfolio should borrow these principles, not reproduce the game's technical scope. Recruiter-facing information must remain immediately visible and usable without requiring visitors to explore a game-like or WebGL experience.
 
 ---
 
