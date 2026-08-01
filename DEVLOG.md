@@ -4,6 +4,18 @@ See the journey of me and Houston as we build project Mamplata! This will serve 
 
 ---
 
+## I finally came back | August 01, 2026 | 20:31
+
+Hello, World! It's been a while since my last log, apparently, I didn't manage to capture the last update, but, luckily, the commit messages helped a lot for backtracking previous work.
+
+I would like to personally apologize to you for not updating the portfolio for almost a month. Lots of commission came up, and I noticed from those commission that I lack one critical knowledge. That is the **Agile Methodology**. I spent the last half of July learning the Agile Methodology, such as Scrum and Kanban. I believe those skills will allow me to progress even faster and better than before. I made a whole research about it in one of my notes, and I'll post it at a later date.
+
+Anyway, since I have returned to my portfolio, I will need to apply my knowledge from the Agile Methodology to this project. Things like sprints, backlogs, and stuff, as well as using Trello and Obsidian for documentation and progress tracking.
+
+So, all this will be paperworks for now, constructing the proper plan to follow and getting back on track.
+
+That's it for now, and I will be checking out the plans again, and start tomorrow! Bye!
+
 ## Massive Hero changes | June 30, 2026 | 13:57
 
 Hi! It's been a while since I last wrote. I got really busy with fixing the Hero section and making the layout nice to look at. Days has passed and still no idea, then a memory struck my head.

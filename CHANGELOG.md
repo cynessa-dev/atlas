@@ -4,6 +4,24 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.6.0
+
+*June 30, 2026 - 13:57*
+
+The Hero is taking a new creative direction, combining clearer storytelling with a more immersive workspace experience.
+
+**WHAT'S NEW?**
+
+- Redesigned the Hero section with presentation ideas inspired by Lama Lama while retaining the portfolio's own identity.
+- Established a workspace-inspired storytelling direction for the Hero section.
+- Began exploring custom 3D assets using Blender.
+- Added Three.js to the planned creative direction for presenting 3D elements throughout the portfolio.
+
+**NOTES:**
+
+- The 3D artwork is currently inspired by Studio Wrong while I learn the fundamentals and develop my own visual style.
+- Interactive and 3D elements will enhance the portfolio without hiding important information from recruiters.
+
 ## v0.5.1
 
 *June 29, 2026 - 21:32*
