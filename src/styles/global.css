@@ -43,3 +43,7 @@
 .eyebrow {
   @apply font-mono mb-6 text-xs tracking-wider md:text-sm xl:text-xs
 }
+
+.screen-padding {
+  @apply px-16
+}
