@@ -41,5 +41,5 @@
 /* ==================== */
 
 .eyebrow {
-  @apply mb-6 text-xs tracking-wider md:text-sm xl:text-xs
+  @apply font-mono mb-6 text-xs tracking-wider md:text-sm xl:text-xs
 }
