@@ -4,6 +4,24 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.6.2
+
+*August 06, 2026 - 20:49*
+
+Anddddd... We are back to the ball game! Lots of new UI updates and dev experience improvements.
+
+**WHAT'S NEW?**
+
+- Refined the Hero, Philosophy, and About Me sections with clearer copy and a more consistent content structure.
+- Added shared screen padding to keep the Philosophy and About Me sections aligned across the page.
+- Standardized `eyebrow` headings with monospaced typography and improved visibility.
+- Updated the main font to **Inter** and refined typography for improved readability.
+- Expanded the About Me section with a *clearer* introduction and personal development approach.
+
+**LESSON LEARNED**
+
+- Shipping a smaller version today is better than waiting for a perfect version tomorrow.
+
 ## v0.6.1
 
 *August 06, 2026 - 14:00*
