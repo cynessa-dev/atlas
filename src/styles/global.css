@@ -35,3 +35,11 @@
   font-variation-settings:
     "wdth" 100;
 }
+
+/* ==================== */
+/* CUSTOM CLASSES */
+/* ==================== */
+
+.eyebrow {
+  @apply text-xs tracking-wider md:text-sm xl:text-xs
+}
