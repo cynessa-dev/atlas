@@ -41,5 +41,5 @@
 /* ==================== */
 
 .eyebrow {
-  @apply text-xs tracking-wider md:text-sm xl:text-xs
+  @apply mb-6 text-xs tracking-wider md:text-sm xl:text-xs
 }
