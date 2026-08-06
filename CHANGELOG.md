@@ -4,6 +4,15 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.6.1
+
+*August 06, 2026 - 14:00*
+
+**WHAT'S NEW?**
+
+- Updated Astro from `v7.0.3` to `v7.1.6`.
+- Refreshed the dependency lockfile to reflect the Astro update.
+
 ## v0.6.0
 
 *June 30, 2026 - 13:57*
