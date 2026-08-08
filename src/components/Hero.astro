@@ -1,47 +1,8 @@
----
-
-import BrandIcon from "../assets/BrandIcon.astro";
-
-type bootMessage = {
-    message: string,
-    loading?: boolean,
-    seconds?: number,
-};
-
-const bootMessages: bootMessage[] = [
-    { message: 'POST initiated' },
-    { message: 'CPU detected' },
-    { message: 'Memory test', loading: true, seconds: 0.2 },
-    { message: 'Brewing coffee', loading: true, seconds: 0.5 },
-    { message: 'Boot device: COOL_PORTFOLIO' },
-    { message: 'Loading kernel: ChanOS', loading: true, seconds: 0.2 },
-    { message: 'Initializing interface' },
-    { message: 'READY' },
-    { message: 'Booting MamplaTech', loading: true, seconds: 0.5 },
-]
-
----
 
 <section id="hero" class="relative flex items-center min-w-screen min-h-screen overflow-hidden select-none">
     <div id="props" class="absolute w-full h-full origin-[50%_50%]">
         <div id="device-container" class="absolute w-full h-full">
             <div id="device-screen" class="px-3 py-4 w-full h-full bg-zinc-950 lg:px-6">
-                <div class="font-mono text-zinc-200" data-boot-container>
-                    {bootMessages.map((boot) => (
-                        <p 
-                            data-boot-message
-                            data-boot-loading={boot.loading ?? false}
-                            data-boot-seconds={boot.seconds ?? 1.0}
-                        >
-                            {boot.message}
-                        </p>
-                    ))}
-                </div>
-                <div id="kernel" class="hidden justify-center items-center w-full h-full text-zinc-200">
-                    <div class="size-64">
-                        <BrandIcon />
-                    </div>
-                </div>
                 <div id="hero-content" class="flex invisible w-full h-full text-zinc-200" data-hero-container>
                     <div class="grid grid-cols-6 mt-auto mb-6 px-0 lg:px-8 lg:grid-cols-12 lg:mb-12">
                         <div class="col-start-1 col-span-6 uppercase lg:col-span-8 xl:col-span-6">
