@@ -38,10 +38,8 @@ import Overlay from '../components/ui/Overlay.astro';
 </style>
 
 <script>
-	import { initSmoothScroll } from "../scripts/smoothScroll";
-	import { initHeader } from '../scripts/header';
-	import { initHero } from '../scripts/hero';
-
+	import { init } from '../scripts/initManager.ts';
+	
 	// Put user at the top of the page on refresh to ensure the loading screen is visible
 	if ('scrollRestoration' in history) {
 		history.scrollRestoration = 'manual';
@@ -49,8 +47,5 @@ import Overlay from '../components/ui/Overlay.astro';
 
 	window.scrollTo(0, 0);
     
-	// Initialize everything after the page has loaded to ensure all elements are present
-	initSmoothScroll();
-	initHeader();
-	initHero();
+	init();
 </script>
