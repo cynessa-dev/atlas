@@ -1,6 +1,7 @@
 ---
 
 import '../styles/global.css';
+import LoadingOverlay from '../components/LoadingOverlay.astro';
 import Header from '../components/ui/Header.astro';
 import Overlay from '../components/ui/Overlay.astro';
 
@@ -18,6 +19,7 @@ import Overlay from '../components/ui/Overlay.astro';
 		<title>Christian Mamplata</title>
 	</head>
 	<body class="instrument-sans bg-slate-200">
+		<LoadingOverlay />
 		<Overlay />
         <Header />
 		<div id="smooth-wrapper">
