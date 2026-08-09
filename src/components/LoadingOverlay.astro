@@ -23,12 +23,12 @@ const bootMessages: bootMessage[] = [
 ---
 
 <div id="loading-overlay" class="fixed z-10 inset-0 min-w-screen min-h-screen bg-zinc-950">
-    <div class="font-mono text-zinc-200" data-boot-container>
+    <div class="hidden font-mono text-zinc-200" data-boot-container>
         {bootMessages.map((boot) => (
             <p 
-            data-boot-message
-            data-boot-loading={boot.loading ?? false}
-            data-boot-seconds={boot.seconds ?? 1.0}
+                data-boot-message
+                data-boot-loading={boot.loading ?? false}
+                data-boot-seconds={boot.seconds ?? 1.0}
             >
             {boot.message}
         </p>
@@ -38,5 +38,8 @@ const bootMessages: bootMessage[] = [
         <div class="size-64">
             <BrandIcon />
         </div>
+    </div>
+    <div id="quickload" class="hidden justify-center items-center w-full h-full">
+        <p class="font-mono text-zinc-200">[ BEYOND THE SCREEN ]</p>
     </div>
 </div>

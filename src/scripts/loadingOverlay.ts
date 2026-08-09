@@ -11,6 +11,7 @@ type HeroElements = {
     bootContainerElement: HTMLElement;
     bootMessageElements: NodeListOf<HTMLElement>;
     kernelElement: HTMLElement;
+    quickloadElement: HTMLElement;
 };
 
 const LOADING_COMPLETE_EVENT = 'loading:complete';
@@ -31,12 +32,14 @@ const getOverlayElements = (): HeroElements | null => {
     const bootContainerElement = document.querySelector<HTMLElement>('[data-boot-container]');
     const bootMessageElements = document.querySelectorAll<HTMLElement>('[data-boot-message]');
     const kernelElement = document.getElementById('kernel');
+    const quickloadElement = document.getElementById('quickload');
 
     if (
         !overlayContainerElement ||
         !bootContainerElement ||
         bootMessageElements.length === 0 ||
-        !kernelElement
+        !kernelElement ||
+        !quickloadElement
     ) return null;
 
     return {
@@ -44,11 +47,19 @@ const getOverlayElements = (): HeroElements | null => {
         bootContainerElement,
         bootMessageElements,
         kernelElement,
+        quickloadElement,
     };
 };
 
 const playAnimations = (elements: HeroElements) => {
     const introTimeline = gsap.timeline();
+
+    if (window.sessionStorage.getItem('loadingComplete') === 'true') {
+        toggleScroll(introTimeline, false);
+        animateSlideUp(introTimeline, elements.overlayContainerElement, elements.quickloadElement);
+        
+        return;
+    }
 
     toggleScroll(introTimeline, false);
     animateBootMessages(introTimeline, elements.bootContainerElement, elements.bootMessageElements);
@@ -73,6 +84,8 @@ const animateBootMessages = (
     bootContainerElement: HTMLElement,
     bootMessageElements: NodeListOf<HTMLElement>,
 ) => {
+    // Prepare the container
+    introTimeline.set(bootContainerElement, { display: 'block' });
 
     bootMessageElements.forEach((message) => {
         const loading = message.dataset.bootLoading === 'true';
@@ -89,6 +102,7 @@ const animateBootMessages = (
         }
     });
 
+    // Outro Animation
     introTimeline
         .to(bootContainerElement, {
             autoAlpha: 0,
@@ -116,11 +130,28 @@ const animateKernel = (introTimeline: gsap.core.Timeline, kernelElement: HTMLEle
         });
 };
 
+const animateSlideUp = (
+    introTimeline: gsap.core.Timeline,
+    overlayContainerElement: HTMLElement,
+    quickloadElement: HTMLElement
+) => {
+    introTimeline
+    .set(quickloadElement, { display: 'flex' })
+    .to(overlayContainerElement, {
+        yPercent: -100,
+        duration: 0.5,
+        ease: 'sine.inOut',
+        delay: 0.5,
+        onStart: () => triggerLoadingCompleteEvent(false),
+        onComplete: () => overlayContainerElement.remove(),
+    });
+}
+
 const hideOverlay = (introTimeline: gsap.core.Timeline, overlayElement: HTMLElement) => {
     introTimeline.set(overlayElement, {
         display: 'none' 
     })
-    .call(triggerLoadingCompleteEvent);
+    .call(() => triggerLoadingCompleteEvent(true));
 }
 
 // ====================
@@ -149,6 +180,11 @@ const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElemen
     });
 };
 
-const triggerLoadingCompleteEvent = () => {
-    window.dispatchEvent(new CustomEvent(LOADING_COMPLETE_EVENT));
+const triggerLoadingCompleteEvent = (playHeroIntro: boolean) => {
+    window.sessionStorage.setItem('loadingComplete', 'true');
+    window.dispatchEvent(new CustomEvent(
+        LOADING_COMPLETE_EVENT, {
+            detail: { playHeroIntro }
+        }
+    ));
 };
