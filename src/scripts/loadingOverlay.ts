@@ -125,15 +125,15 @@ const animateSlideUp = (
     quickloadElement: HTMLElement
 ) => {
     introTimeline
-    .set(quickloadElement, { display: 'flex' })
-    .to(overlayContainerElement, {
-        yPercent: -100,
-        duration: 0.5,
-        ease: 'sine.inOut',
-        delay: 0.5,
-        onStart: () => triggerLoadingCompleteEvent(false),
-        onComplete: () => overlayContainerElement.remove(),
-    });
+        .set(quickloadElement, { display: 'flex' })
+        .to(overlayContainerElement, {
+            yPercent: -100,
+            duration: 0.5,
+            ease: 'sine.inOut',
+            delay: 0.5,
+            onStart: () => triggerLoadingCompleteEvent(false),
+            onComplete: () => overlayContainerElement.remove(),
+        });
 };
 
 const hideOverlay = (introTimeline: gsap.core.Timeline, overlayElement: HTMLElement) => {
