@@ -54,29 +54,19 @@ const playAnimations = (elements: HeroElements) => {
     const introTimeline = gsap.timeline();
 
     if (window.sessionStorage.getItem('loadingComplete') === 'true') {
-        toggleScroll(introTimeline, false);
         animateSlideUp(introTimeline, elements.overlayContainerElement, elements.quickloadElement);
         
         return;
     }
 
-    toggleScroll(introTimeline, false);
     animateBootMessages(introTimeline, elements.bootContainerElement, elements.bootMessageElements);
     animateKernel(introTimeline, elements.kernelElement);
-    toggleScroll(introTimeline, true);
     hideOverlay(introTimeline, elements.overlayContainerElement);
 };
 
 // ====================
 // ANIMATIONS
 // ====================
-
-const toggleScroll = (introTimeline: gsap.core.Timeline, isScroll: boolean) => {
-    introTimeline
-        .set('body', {
-            overflow: isScroll ? 'auto' : 'hidden',
-        });
-}
 
 const animateBootMessages = (
     introTimeline: gsap.core.Timeline,
@@ -144,14 +134,14 @@ const animateSlideUp = (
         onStart: () => triggerLoadingCompleteEvent(false),
         onComplete: () => overlayContainerElement.remove(),
     });
-}
+};
 
 const hideOverlay = (introTimeline: gsap.core.Timeline, overlayElement: HTMLElement) => {
     introTimeline.set(overlayElement, {
         display: 'none' 
     })
     .call(() => triggerLoadingCompleteEvent(true));
-}
+};
 
 // ====================
 // UTILITY ANIMATION
