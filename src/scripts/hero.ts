@@ -4,6 +4,7 @@ import SplitText from 'gsap/SplitText';
 
 import { animateScramble } from './scramble';
 import { animateLineFloat } from './lineFloat';
+import { triggerHeroIntroCompleteEvent } from '../constants/events';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -14,8 +15,6 @@ type HeroElements = {
     heroDescriptionElement: HTMLElement;
     scrambleText: HTMLElement;
 };
-
-const HERO_INTRO_COMPLETE_EVENT = 'hero:intro-complete';
 
 export const initHero = (options: { playIntro: boolean }) => {
     const elements = getHeroElements();
@@ -89,7 +88,7 @@ const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLEle
         duration: 2.0,
         ease: 'sine.inOut',
         onComplete: () => {
-            window.dispatchEvent(new CustomEvent(HERO_INTRO_COMPLETE_EVENT));
+            triggerHeroIntroCompleteEvent();
         },
     });
 };

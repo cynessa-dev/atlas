@@ -3,6 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 
 import { initBrandIcon } from './brandIcon';
+import { triggerLoadingCompleteEvent } from '../constants/events';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -13,8 +14,6 @@ type HeroElements = {
     kernelElement: HTMLElement;
     quickloadElement: HTMLElement;
 };
-
-const LOADING_COMPLETE_EVENT = 'loading:complete';
 
 const LOADING_ICONS = ['|', '/', '-', '\\'];
 const SPINNER_INTERVAL_MS = 50;
@@ -178,13 +177,4 @@ const animateLoading = (timeline: gsap.core.Timeline, messageElement: HTMLElemen
             messageElement.textContent = originalText + '... OK';
         }
     });
-};
-
-const triggerLoadingCompleteEvent = (playHeroIntro: boolean) => {
-    window.sessionStorage.setItem('loadingComplete', 'true');
-    window.dispatchEvent(new CustomEvent(
-        LOADING_COMPLETE_EVENT, {
-            detail: { playHeroIntro }
-        }
-    ));
 };
