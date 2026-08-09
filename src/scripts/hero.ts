@@ -17,12 +17,12 @@ type HeroElements = {
 
 const HERO_INTRO_COMPLETE_EVENT = 'hero:intro-complete';
 
-export const initHero = () => {
+export const initHero = (options: { playIntro: boolean }) => {
     const elements = getHeroElements();
 
     if (!elements) return;
 
-    playAnimations(elements);
+    playAnimations(elements, options.playIntro);
 };
 
 const getHeroElements = (): HeroElements | null => {
@@ -49,13 +49,15 @@ const getHeroElements = (): HeroElements | null => {
     };
 };
 
-const playAnimations = (elements: HeroElements) => {
+const playAnimations = (elements: HeroElements, playIntro: boolean) => {
     const introTimeline = gsap.timeline();
 
-    toggleScroll(introTimeline, false);
     animateHero(introTimeline, elements.heroContainerElement, elements.heroTaglineElement, elements.heroDescriptionElement, elements.scrambleText);
-    animateZoomOut(introTimeline, elements.propsElement);
-    toggleScroll(introTimeline, true);
+    
+    if (playIntro)
+        animateZoomOut(introTimeline, elements.propsElement);
+    else
+        setPropsToFinalState(elements.propsElement);
 
     animateScroll();
 };
@@ -63,13 +65,6 @@ const playAnimations = (elements: HeroElements) => {
 // ====================
 // ANIMATIONS
 // ====================
-
-const toggleScroll = (introTimeline: gsap.core.Timeline, isScroll: boolean) => {
-    introTimeline
-        .set('body', {
-            overflow: isScroll ? 'auto' : 'hidden',
-        });
-}
 
 const animateHero = (
     introTimeline: gsap.core.Timeline,
@@ -96,6 +91,12 @@ const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLEle
         onComplete: () => {
             window.dispatchEvent(new CustomEvent(HERO_INTRO_COMPLETE_EVENT));
         },
+    });
+};
+
+const setPropsToFinalState = (propsElement: HTMLElement) => {
+    gsap.set(propsElement, {
+        scale: 0.80,
     });
 };
 
