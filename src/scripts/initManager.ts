@@ -6,9 +6,11 @@ import { initHero } from '../scripts/hero';
 export const init = () => {
     initOverlay();
 
-    window.addEventListener('loading:complete', () => {
+    window.addEventListener('loading:complete', (event) => {
+        const { playHeroIntro } = (event as CustomEvent).detail;
+
         initSmoothScroll();
         initHeader();
-        initHero();
+        initHero({ playIntro: playHeroIntro });
     });
 };
