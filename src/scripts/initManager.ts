@@ -1,4 +1,3 @@
-import { initSmoothScroll } from "../scripts/smoothScroll";
 import { initHeader } from '../scripts/header';
 import { initOverlay } from '../scripts/loadingOverlay';
 import { initHero } from '../scripts/hero';
@@ -12,7 +11,6 @@ export const init = () => {
     listenToLoadingCompleteEvent((event) => {
         const { isQuickload } = (event as CustomEvent).detail;
 
-        initSmoothScroll();
         initHeader();
         initHero({ isQuickload });
     });
