@@ -16,12 +16,12 @@ type HeroElements = {
     scrambleText: HTMLElement;
 };
 
-export const initHero = (options: { playIntro: boolean }) => {
+export const initHero = (options: { isQuickload: boolean }) => {
     const elements = getHeroElements();
 
     if (!elements) return;
 
-    playAnimations(elements, options.playIntro);
+    playAnimations(elements, options.isQuickload);
 };
 
 const getHeroElements = (): HeroElements | null => {
@@ -87,15 +87,14 @@ const animateZoomOut = (introTimeline: gsap.core.Timeline, propsElement: HTMLEle
         scale: 0.80,
         duration: 2.0,
         ease: 'sine.inOut',
-        onComplete: () => {
-            triggerHeroIntroCompleteEvent();
-        },
+        onComplete: () => triggerHeroIntroCompleteEvent(),
     });
 };
 
 const setPropsToFinalState = (propsElement: HTMLElement) => {
     gsap.set(propsElement, {
         scale: 0.80,
+        onComplete: () => triggerHeroIntroCompleteEvent(),
     });
 };
 
