@@ -4,6 +4,25 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.6.3
+
+*August 09, 2026 - 21:09*
+
+The intro animation now flows elegantly, that gives first visits (sessions) an intentionally designed entrance while keeping page refresh lightweight. It is much cooler now since it does not keep repeating the intro every refresh.
+
+**WHAT'S NEW?**
+
+- Extracted the loading sequence from the Hero into a dedicated `LoadingOverlay` component and animation script.
+- Added a boot-up sequence with status messages, a kernel/brand moment, and a streamlined quick-load screen for return visits.
+- Added session-based quick-load detection so the full Hero zoom-out intro only plays when appropriate.
+- Centralized page startup in `initManager` and moved shared loading and Hero completion events into a reusable events module.
+- Added `scrollManager` to coordinate smooth scrolling and prevent scrolling during the Hero introduction.
+- Moved the loading overlay into the main layout so it consistently covers the complete page during startup.
+
+**LESSON LEARNED**
+
+- Separate animation ownership from page orchestration: a component should animate its own UI, while a small manager coordinates when each experience begins.
+
 ## v0.6.2
 
 *August 06, 2026 - 20:49*
