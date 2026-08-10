@@ -4,6 +4,82 @@ See the journey of me and Houston as we build project Mamplata! This will serve 
 
 ---
 
+## Elegant Loading | August 10, 2026 | 15:24
+
+Aaaaaaaanddd... We are back again! Hello, World! It's been quite some time. From August 02 to 10, all I did was a bunch of research and development. For now, let's talk about the current status of the portfolio.
+
+On August 06, I was notified of a new Astro version, `v7.1.6`, and it would be nice to upgrade the astro version. But, of course, I made sure it was safe and stable that it would not introduce any breaking changes. It seemed to be a success. I learned this lesson before, updating critical dependecies, especially the main framework that you are using, should always be done with extreme care. Luckily, I was already using git back then, so my progress was saved every successful changes. Any weird thing that I messed up that I would rather revert that fix is done through git. So, everyone, let's say thank to **Linus Torvalds**.
+
+> Thank you, Mr. Linus!
+
+During that, I took the chance to grab a quick coffee and started development.
+
+On the same day, I did a lot of refinement and standardization. Why? Well, I pity myself! The person who will maintain this thing is me. Though, part of the reason is that I want people to be able to study the code easily.
+
+I can't say that the codebase is tidy, nor will it be in the future. But, I can guarantee that I will do my best to maintain efficiency while keeping readability as priority.
+
+Honestly, I should be placing comments to my code more often. However, GitLab mentioned to prioritize `self-explanatory` code rather than commenting it out.
+
+Here have a read at [this](https://docs.gitlab.com/development/code_comments/).
+
+Though, they did not meant to say to not put any comment on your code, it's just, use comments sparingly and optimize the code to be self-explanatory.
+
+The same thing is true with lines of code! The developer's job is not to write as many or as few lines as possible. Our job, as developers, is to create high-quality human-readable code. It doesn't matter if it takes a few hundred lines. As long as it is necessary, it is great.
+
+But don't get me wrong, I did not mean to write as many lines as you can, or modularize as much as you can so you can lessen the lines. You just gotta know the concept of `Separation of Concerns` to understand what I am saying.
+
+But, we won't be talking about that in this log, we will be moving on to the next topic, which is design choices!
+
+So, as you can see in my `CHANGELOG.md`, you will notice on `v0.6.2` that I changed the main font to `Inter`. Why?
+
+Well, the previous font was `Instrument Sans`, which I didn't really liked the vibe. It wasn't thick enough to look confident, and not spaced just the way I wanted to look more tight and easy to read.
+
+`Instrument Sans` is a great font, though it's not the right one for my portfolio. So, that's why I switched to `Inter`.
+
+But how did I picked it? Well, it simply just popped into my head since it is the default font in Figma, as of writing this. My professor banned me from using `Inter` because it was *too common*. I thought, well, there's a reason it is used by many. For me, it doesn't really matter if your font is common or rare.
+
+> What use does a font have when it just doesn't fit right?
+
+All that matters is how you use the font. It's not about being generic. It's true that some fonts are designed in such a way that looks unique, but again, it falls into the vibe that you are going for.
+
+For example, if you are making a bank website, why on earth would you use a font that's too playful? I would prefer using like a Serif font to give a vibe of *time-tested*, or sans serif like `Roboto` since users will probably read a lot of stuff.
+
+In any case, always be mindful of your fonts. There's no best font, but there is always a right way to use one.
+
+After the font, I did a lot of layout fixing, especially in the `About Me` section. I wanted it to convey a clear message with few characters a possible. So, I put in my main tagline on the upper part, which is:
+
+**SHIP SMALL, DELIVER BIG**
+
+I believe that it matches my personality much more, and would be the main concept I would be following. I mean, what use is a software waiting to be perfected rather than ship it with as the **Most Viable Product**, and build on top on it.
+
+I learned this from a random guy in the internet once.
+
+**You cannot make your software perfect, but you can make it better**
+
+It finally struck me, I keep on building and building, perfecting my softwares. In the end, barely any of them get deployed. Starting that day, I kept on shipping small, making progress bit by bit, and collecting actual data from the results of that. That allows me to improve my ways, and make it much more better rather than *"perfecting"* it.
+
+I did that, then an frustrating bug hit me. I thought it was cool to have an intro animation.
+
+I mean, it is still cool, but refreshing the page keeps replaying it. I don't want to remove it fully either as it is part of the User Experience.
+
+So, I thought of a solution, why not let the animation play once per session, then use a light loading animation to let the page breathe while the assets reload for a moment, makes it much more smoother than just a blink or snap.
+
+So I spend the whole day making an alternative loading overlay, and what do you know! I struck a very annoying mistake I made. Making my code messy.
+
+The code was quite messy when the alternative loading was done, and I can't even figure it out myself. That's why committing took 2 days, until I was able to commit.
+
+I made sure the new feature is modular, as well as the other parts. I also made sure to separate things, trying my best to separate concerns, like triggering events, managing initializations, and scrolling behavior.
+
+I needed things separated, so that my brain could focus on 2 scripts, and be able to them apart instead of mixing the 2.
+
+That way, I was much more efficient to compare 2 codes, and relate them. Another stuff that helped me was centralizing scripts.
+
+For example, I got this `initManager.ts`. This script, as the name implies, manages the initialization of different scripts such as the header, hero, overlays, ect. The `initManager.ts` calls the needed initialization whenever it is needed and processes it. Why is this important? So that `Layout.astro` doesn't need to concern itself figuring things which to initialize. It just tells `initManager.ts` to do his stuff, and `initManager.ts` handles it gracefully.
+
+With that, I can say that, the more I code, the more I know that I didn't know. Technology is really fascinating, and it grows really fast. It matched my hunger for curiousity, wanting to learn everyday, and technology manage to keep up with it.
+
+Anyway, that's all for now! Goodbye and see you all soon! Bye!
+
 ## I finally came back | August 01, 2026 | 20:31
 
 Hello, World! It's been a while since my last log, apparently, I didn't manage to capture the last update, but, luckily, the commit messages helped a lot for backtracking previous work.
