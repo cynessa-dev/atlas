@@ -15,6 +15,7 @@ Useful resources and inspirations.
 * [Laws of UX](https://lawsofux.com/)
 * [Lama Lama](https://lamalama.com/)
 * [Messenger by Abeto](https://messenger.abeto.co/)
+* [No Art](https://www.noartmusic.com/)
 
 ### MESSENGER BY ABETO
 
