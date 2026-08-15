@@ -2,6 +2,21 @@
 
 import SkillBar from './ui/SkillBar.astro';
 
+const skills = [
+    {
+        name: 'Web',
+        icon: '',
+    },
+    {
+        name: 'Game',
+        icon: '',
+    },
+    {
+        name: 'Design',
+        icon: '',
+    },
+];
+
 ---
 
 <section id="skills">
@@ -10,5 +25,5 @@ import SkillBar from './ui/SkillBar.astro';
         <p>Game Development</p>
         <p>Backend Development</p>
     </div>
-    <SkillBar />
+    <SkillBar skills={skills} />
 </section>
