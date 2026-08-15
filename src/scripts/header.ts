@@ -4,19 +4,19 @@ import { toggleOverlay } from './overlay';
 type MenuLine = 'top' | 'mid' | 'bot';
 
 type HeaderElements = {
-    headerElement: HTMLElement;
-    buttonElement: HTMLButtonElement;
-    iconElement: HTMLElement;
-    optionsContainerElement: HTMLElement;
-    optionElements: NodeListOf<HTMLElement>;
-    overlayElement: HTMLElement;
+    headerElement: HTMLElement,
+    buttonElement: HTMLButtonElement,
+    iconElement: HTMLElement,
+    optionsContainerElement: HTMLElement,
+    optionElements: NodeListOf<HTMLElement>,
+    overlayElement: HTMLElement,
 };
 
 type MenuIconY = {
-    topLine: HTMLElement;
-    botLine: HTMLElement;
-    topMoveY: gsap.TweenValue;
-    botMoveY: gsap.TweenValue;
+    topLine: HTMLElement,
+    botLine: HTMLElement,
+    topMoveY: gsap.TweenValue,
+    botMoveY: gsap.TweenValue,
 };
 
 const MENU_ANIMATION_DURATION = 0.4;

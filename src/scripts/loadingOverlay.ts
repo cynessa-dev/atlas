@@ -8,11 +8,11 @@ import { triggerLoadingCompleteEvent } from '../constants/events';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 type HeroElements = {
-    overlayContainerElement: HTMLElement;
-    bootContainerElement: HTMLElement;
-    bootMessageElements: NodeListOf<HTMLElement>;
-    kernelElement: HTMLElement;
-    quickloadElement: HTMLElement;
+    overlayContainerElement: HTMLElement,
+    bootContainerElement: HTMLElement,
+    bootMessageElements: NodeListOf<HTMLElement>,
+    kernelElement: HTMLElement,
+    quickloadElement: HTMLElement,
 };
 
 const LOADING_ICONS = ['|', '/', '-', '\\'];

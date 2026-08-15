@@ -3,12 +3,12 @@
 type Status = 0 | 1 | 2;
 
 type StatusInfo = {
-    color: string;
-    text: string;
+    color: string,
+    text: string,
 };
 
 type Props = {
-    status: Status;
+    status: Status,
 }
 
 const statusInfo: Record<Status, StatusInfo> = {

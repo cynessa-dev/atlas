@@ -9,11 +9,11 @@ import { triggerHeroIntroCompleteEvent } from '../constants/events';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 type HeroElements = {
-    propsElement: HTMLElement;
-    heroContainerElement: HTMLElement;
-    heroTaglineElement: HTMLElement;
-    heroDescriptionElement: HTMLElement;
-    scrambleText: HTMLElement;
+    propsElement: HTMLElement,
+    heroContainerElement: HTMLElement,
+    heroTaglineElement: HTMLElement,
+    heroDescriptionElement: HTMLElement,
+    scrambleText: HTMLElement,
 };
 
 export const initHero = (options: { isQuickload: boolean }) => {
