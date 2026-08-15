@@ -1,52 +1,62 @@
 ---
-
 import BrandIcon from '../../assets/BrandIcon.astro';
 import MenuIcon from '../../assets/MenuIcon.astro';
 
 type NavItem = {
-    name: string,
-    href: string,
+  name: string;
+  href: string;
 };
 
 const items: NavItem[] = [
-    { name: 'My Philosophy', href: '#philosophy' },
-    { name: 'About Me', href: '#about' },
-    { name: 'What I Do', href: '#skills' },
-    { name: 'Curated Works', href: '#projects' },
-    { name: 'Contact', href: '#connect' },
+  { name: 'My Philosophy', href: '#philosophy' },
+  { name: 'About Me', href: '#about' },
+  { name: 'What I Do', href: '#skills' },
+  { name: 'Curated Works', href: '#projects' },
+  { name: 'Contact', href: '#connect' },
 ];
-
 ---
 
-
-<header 
-    id="header" 
-    class="invisible opacity-0 fixed top-4 right-1/2 translate-x-1/2 z-50 flex flex-col justify-center overflow-x-hidden w-[calc(100%-2rem)] bg-zinc-950/60 text-zinc-200 rounded-sm md:w-[28%]"
+<header
+  id="header"
+  class="invisible opacity-0 fixed top-4 right-1/2 translate-x-1/2 z-50 flex flex-col justify-center overflow-x-hidden w-[calc(100%-2rem)] bg-zinc-950/60 text-zinc-200 rounded-sm md:w-[28%]"
 >
-    <nav class="flex items-center px-4 py-2 w-full">
-        <div class="flex justify-center items-center shrink-0 p-1 size-8">
-            <BrandIcon />
-        </div>
-        <div class="flex-1 text-xs">
-            <p class="font-mono text-center whitespace-nowrap">Hello, World</p>
-        </div>
-        <div class="flex justify-center items-center shrink-0 size-8">
-            <button class="button w-full h-full cursor-pointer" aria-expanded="false" data-menu-button>
-                <MenuIcon />
-            </button>
-        </div>
-    </nav>
-    <div class="overflow-y-hidden max-h-0" data-menu-options>
-        <ul>
-            {items.map((item) => (
-                <li class="border-t border-zinc-800/60">
-                    <a class="block px-8 py-4 transition-colors duration-200 hover:bg-zinc-600/20" href={item.href} target="_self" aria-label={item.name}>
-                        <div class="overflow-y-hidden">
-                            <p class="text-sm" data-menu-option>{item.name}</p>
-                        </div>
-                    </a>
-                </li>
-            ))}
-        </ul>
+  <nav class="flex items-center px-4 py-2 w-full">
+    <div class="flex justify-center items-center shrink-0 p-1 size-8">
+      <BrandIcon />
     </div>
+    <div class="flex-1 text-xs">
+      <p class="font-mono text-center whitespace-nowrap">Hello, World</p>
+    </div>
+    <div class="flex justify-center items-center shrink-0 size-8">
+      <button
+        class="button w-full h-full cursor-pointer"
+        aria-expanded="false"
+        data-menu-button
+      >
+        <MenuIcon />
+      </button>
+    </div>
+  </nav>
+  <div class="overflow-y-hidden max-h-0" data-menu-options>
+    <ul>
+      {
+        items.map((item) => (
+          <li class="border-t border-zinc-800/60">
+            <a
+              class="block px-8 py-4 transition-colors duration-200 hover:bg-zinc-600/20"
+              href={item.href}
+              target="_self"
+              aria-label={item.name}
+            >
+              <div class="overflow-y-hidden">
+                <p class="text-sm" data-menu-option>
+                  {item.name}
+                </p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </header>

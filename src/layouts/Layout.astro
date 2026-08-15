@@ -1,53 +1,54 @@
 ---
-
 import '../styles/global.css';
 import LoadingOverlay from '../components/LoadingOverlay.astro';
 import Header from '../components/ui/Header.astro';
 import Overlay from '../components/ui/Overlay.astro';
-
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,menu" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Christian Mamplata</title>
-	</head>
-	<body class="instrument-sans bg-slate-200">
-		<LoadingOverlay />
-		<Overlay />
-        <Header />
-		<div id="smooth-wrapper">
-			<div id="smooth-content">
-				<slot />
-			</div>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,menu"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>Christian Mamplata</title>
+  </head>
+  <body class="instrument-sans bg-slate-200">
+    <LoadingOverlay />
+    <Overlay />
+    <Header />
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+      </div>
+    </div>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 <script>
-	import { init } from '../scripts/initManager.ts';
-	
-	// Put user at the top of the page on refresh to ensure the loading screen is visible
-	if ('scrollRestoration' in history) {
-		history.scrollRestoration = 'manual';
-	}
+  import { init } from '../scripts/initManager.ts';
 
-	window.scrollTo(0, 0);
-    
-	init();
+  // Put user at the top of the page on refresh to ensure the loading screen is visible
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.scrollTo(0, 0);
+
+  init();
 </script>

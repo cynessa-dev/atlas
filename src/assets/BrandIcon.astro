@@ -1,49 +1,47 @@
 ---
-
 const iconMap = [
-    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-    [1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-    [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
-    [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
-    [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
-    [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
-    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-]
+  [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
+  [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
+  [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
+  [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0],
+  [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
 
-const viewX = 24
-const viewY = 24
-const tileSize = 2
-
+const viewX = 24;
+const viewY = 24;
+const tileSize = 2;
 ---
 
 <svg
-    viewBox=`0 0 ${viewX} ${viewY}`
-    class="w-full h-full"
-    aria-hidden="true"
-    data-brand-icon
+  viewBox=`0 0 ${viewX} ${viewY}`
+  class="w-full h-full"
+  aria-hidden="true"
+  data-brand-icon
 >
-    {iconMap.map((row, y) => {
+  {
+    iconMap.map((row, y) => {
+      return row.map((cell, x) => {
+        if (cell === 0) return;
+
         return (
-            row.map((cell, x) => {
-                if (cell === 0) return;
-                
-                return (
-                    <rect
-                        x={x * tileSize}
-                        y={y * tileSize}
-                        width={tileSize}
-                        height={tileSize}
-                        rx="0"
-                        fill="currentColor"
-                        data-brand-pixel
-                    />
-                );
-            })
+          <rect
+            x={x * tileSize}
+            y={y * tileSize}
+            width={tileSize}
+            height={tileSize}
+            rx="0"
+            fill="currentColor"
+            data-brand-pixel
+          />
         );
-    })}
+      });
+    })
+  }
 </svg>

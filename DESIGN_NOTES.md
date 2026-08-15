@@ -4,7 +4,7 @@ A collection of ideas, concepts, and direction for the portfolio.
 
 This is not meant to be for documentation (although it technically is one).
 
-Its purpose is to preserve the vision behind the project and serve as a compass whenever development becomes messy. So, Enjoy! ~\^_^/~
+Its purpose is to preserve the vision behind the project and serve as a compass whenever development becomes messy. So, Enjoy! ~~\^_^/~~
 
 ---
 
@@ -12,20 +12,20 @@ Its purpose is to preserve the vision behind the project and serve as a compass 
 
 Useful resources and inspirations.
 
-* [Laws of UX](https://lawsofux.com/)
-* [Lama Lama](https://lamalama.com/)
-* [Messenger by Abeto](https://messenger.abeto.co/)
-* [No Art](https://www.noartmusic.com/)
+- [Laws of UX](https://lawsofux.com/)
+- [Lama Lama](https://lamalama.com/)
+- [Messenger by Abeto](https://messenger.abeto.co/)
+- [No Art](https://www.noartmusic.com/)
 
 ### MESSENGER BY ABETO
 
 Use Messenger as a reference for:
 
-* Building a small world that feels alive
-* Rewarding curiosity and exploration
-* Creating atmosphere through art direction, sound, and movement
-* Making interactions playful without overwhelming the visitor
-* Giving a digital experience a strong sense of place and personality
+- Building a small world that feels alive
+- Rewarding curiosity and exploration
+- Creating atmosphere through art direction, sound, and movement
+- Making interactions playful without overwhelming the visitor
+- Giving a digital experience a strong sense of place and personality
 
 The portfolio should borrow these principles, not reproduce the game's technical scope. Recruiter-facing information must remain immediately visible and usable without requiring visitors to explore a game-like or WebGL experience.
 
@@ -41,10 +41,10 @@ Most portfolios showcase technologies.
 
 This portfolio showcases:
 
-* The person
-* The mindset
-* The craft
-* The work
+- The person
+- The mindset
+- The craft
+- The work
 
 Software is not merely presented as code.
 
@@ -126,9 +126,9 @@ Building software beyond functionality.
 
 Additional elements:
 
-* Current availability
-* Local time
-* Navigation
+- Current availability
+- Local time
+- Navigation
 
 The goal is clarity.
 
@@ -183,18 +183,18 @@ Version 1 should use 2D or 2.5D techniques.
 
 Recommended approach:
 
-* Layered artwork
-* GSAP
-* ScrollTrigger
-* Scale and translation
-* Subtle parallax
+- Layered artwork
+- GSAP
+- ScrollTrigger
+- Scale and translation
+- Subtle parallax
 
 Avoid:
 
-* Complex 3D scenes
-* WebGL
-* Three.js
-* Unnecessary technical complexity
+- Complex 3D scenes
+- WebGL
+- Three.js
+- Unnecessary technical complexity
 
 The illusion of depth is more important than actual depth.
 
@@ -254,9 +254,9 @@ A stylized representation of myself appears.
 
 As the visitor scrolls:
 
-* The character walks
-* A door opens
-* The camera moves forward
+- The character walks
+- A door opens
+- The camera moves forward
 
 The visitor is invited beyond the screen and into my personal space.
 
@@ -270,8 +270,8 @@ This transition serves as the bridge between who I am and what I create.
 
 Answer two questions:
 
-* What can this person do?
-* What can this person do for me?
+- What can this person do?
+- What can this person do for me?
 
 Focus on capabilities first.
 
@@ -285,10 +285,10 @@ Build modern web applications and interactive experiences.
 
 Tools:
 
-* Astro
-* React
-* Next.js
-* Tailwind CSS
+- Astro
+- React
+- Next.js
+- Tailwind CSS
 
 ### Game Development
 
@@ -296,8 +296,8 @@ Create interactive systems and gameplay experiences.
 
 Tools:
 
-* Godot
-* Aseprite
+- Godot
+- Aseprite
 
 The technology exists to support the capability.
 
@@ -321,10 +321,10 @@ Visitor explores shelf.
 
 Selecting a book reveals:
 
-* Problem
-* Solution
-* Process
-* Outcome
+- Problem
+- Solution
+- Process
+- Outcome
 
 Projects should feel like stories rather than case studies.
 
@@ -340,10 +340,10 @@ The visitor reaches my workspace.
 
 On the desk:
 
-* Contact information
-* Social links
-* Resume
-* Business card
+- Contact information
+- Social links
+- Resume
+- Business card
 
 The journey concludes with a clear next action.
 
@@ -353,17 +353,17 @@ The journey concludes with a clear next action.
 
 ### What This Portfolio Is NOT
 
-* Generic SaaS website
-* Hacker terminal simulator
-* RPG game
-* Technology showcase
+- Generic SaaS website
+- Hacker terminal simulator
+- RPG game
+- Technology showcase
 
 ## What This Portfolio IS
 
-* A creative developer portfolio
-* A cinematic experience
-* A personal workspace
-* A story-driven journey
+- A creative developer portfolio
+- A cinematic experience
+- A personal workspace
+- A story-driven journey
 
 ---
 
@@ -379,11 +379,11 @@ The visitor is exploring a space.
 
 Potential elements:
 
-* Parallax
-* Zoom transitions
-* Subtle animations
-* Interactive objects
-* Environmental storytelling
+- Parallax
+- Zoom transitions
+- Subtle animations
+- Interactive objects
+- Environmental storytelling
 
 **Avoid unnecessary complexity.**
 
@@ -395,10 +395,10 @@ DO NOT START WITH 3D.
 
 Version 1 should prioritize:
 
-* Content
-* Layout
-* Storytelling
-* Scroll experience
+- Content
+- Layout
+- Storytelling
+- Scroll experience
 
 Only consider 3D after the experience works in 2D.
 

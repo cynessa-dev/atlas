@@ -1,29 +1,27 @@
 ---
-
 import SkillBar from './ui/SkillBar.astro';
 
 const skills = [
-    {
-        name: 'Web',
-        icon: '',
-    },
-    {
-        name: 'Game',
-        icon: '',
-    },
-    {
-        name: 'Design',
-        icon: '',
-    },
+  {
+    name: 'Web',
+    icon: '',
+  },
+  {
+    name: 'Game',
+    icon: '',
+  },
+  {
+    name: 'Design',
+    icon: '',
+  },
 ];
-
 ---
 
 <section id="skills">
-    <div>
-        <p>Web Development</p>
-        <p>Game Development</p>
-        <p>Backend Development</p>
-    </div>
-    <SkillBar skills={skills} />
+  <div>
+    <p>Web Development</p>
+    <p>Game Development</p>
+    <p>Backend Development</p>
+  </div>
+  <SkillBar skills={skills} />
 </section>

@@ -6,7 +6,7 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ## v0.6.3
 
-*August 09, 2026 - 21:09*
+_August 09, 2026 - 21:09_
 
 The intro animation now flows elegantly, that gives first visits (sessions) an intentionally designed entrance while keeping page refresh lightweight. It is much cooler now since it does not keep repeating the intro every refresh.
 
@@ -25,7 +25,7 @@ The intro animation now flows elegantly, that gives first visits (sessions) an i
 
 ## v0.6.2
 
-*August 06, 2026 - 20:49*
+_August 06, 2026 - 20:49_
 
 Anddddd... We are back to the ball game! Lots of new UI updates and dev experience improvements.
 
@@ -35,7 +35,7 @@ Anddddd... We are back to the ball game! Lots of new UI updates and dev experien
 - Added shared screen padding to keep the Philosophy and About Me sections aligned across the page.
 - Standardized `eyebrow` headings with monospaced typography and improved visibility.
 - Updated the main font to **Inter** and refined typography for improved readability.
-- Expanded the About Me section with a *clearer* introduction and personal development approach.
+- Expanded the About Me section with a _clearer_ introduction and personal development approach.
 
 **LESSON LEARNED**
 
@@ -43,7 +43,7 @@ Anddddd... We are back to the ball game! Lots of new UI updates and dev experien
 
 ## v0.6.1
 
-*August 06, 2026 - 14:00*
+_August 06, 2026 - 14:00_
 
 **WHAT'S NEW?**
 
@@ -52,7 +52,7 @@ Anddddd... We are back to the ball game! Lots of new UI updates and dev experien
 
 ## v0.6.0
 
-*June 30, 2026 - 13:57*
+_June 30, 2026 - 13:57_
 
 The Hero is taking a new creative direction, combining clearer storytelling with a more immersive workspace experience.
 
@@ -70,7 +70,7 @@ The Hero is taking a new creative direction, combining clearer storytelling with
 
 ## v0.5.1
 
-*June 29, 2026 - 21:32*
+_June 29, 2026 - 21:32_
 
 I did some major style refactoring after laying out the contents. Additionally, I have upgraded the major framework, Astro, to a newer version at the time of writing this.
 
@@ -85,7 +85,7 @@ I did some major style refactoring after laying out the contents. Additionally, 
 
 ## v0.5.0
 
-*June 17, 2026 - 13:11*
+_June 17, 2026 - 13:11_
 
 Wanna see me do something cool? Give me a call!
 
@@ -96,7 +96,7 @@ Wanna see me do something cool? Give me a call!
 
 ## v0.4.0
 
-*June 17, 2026 - 12:53*
+_June 17, 2026 - 12:53_
 
 Have a look at my proud works!
 
@@ -107,7 +107,7 @@ Have a look at my proud works!
 
 ## v0.3.0
 
-*June 17, 2026 - 12:52*
+_June 17, 2026 - 12:52_
 
 What can I do? Party Tricks?? Yeah, Right?!
 
@@ -122,7 +122,7 @@ What can I do? Party Tricks?? Yeah, Right?!
 
 ## v0.2.0
 
-*June 11, 2026 - 15:38*
+_June 11, 2026 - 15:38_
 
 Who am I?
 
@@ -140,7 +140,7 @@ Who am I?
 
 ## v0.1.0
 
-*June 08, 2026 - 13:55*
+_June 08, 2026 - 13:55_
 
 The **Hero** has arrived!
 
@@ -158,7 +158,7 @@ The **Hero** has arrived!
 
 ## v0.0.1
 
-*June 05, 2026 - 20:56*
+_June 05, 2026 - 20:56_
 
 Hello, my old friend, Tailwind CSS!
 
@@ -170,7 +170,7 @@ Hello, my old friend, Tailwind CSS!
 
 ## v0.0.0
 
-*June 05, 2026 - 20:24*
+_June 05, 2026 - 20:24_
 
 The start of a new journey with Houston, onboard the mighty spaceraft Astro!
 

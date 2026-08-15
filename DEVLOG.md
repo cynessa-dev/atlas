@@ -36,13 +36,13 @@ Well, the previous font was `Instrument Sans`, which I didn't really liked the v
 
 `Instrument Sans` is a great font, though it's not the right one for my portfolio. So, that's why I switched to `Inter`.
 
-But how did I picked it? Well, it simply just popped into my head since it is the default font in Figma, as of writing this. My professor banned me from using `Inter` because it was *too common*. I thought, well, there's a reason it is used by many. For me, it doesn't really matter if your font is common or rare.
+But how did I picked it? Well, it simply just popped into my head since it is the default font in Figma, as of writing this. My professor banned me from using `Inter` because it was _too common_. I thought, well, there's a reason it is used by many. For me, it doesn't really matter if your font is common or rare.
 
 > What use does a font have when it just doesn't fit right?
 
 All that matters is how you use the font. It's not about being generic. It's true that some fonts are designed in such a way that looks unique, but again, it falls into the vibe that you are going for.
 
-For example, if you are making a bank website, why on earth would you use a font that's too playful? I would prefer using like a Serif font to give a vibe of *time-tested*, or sans serif like `Roboto` since users will probably read a lot of stuff.
+For example, if you are making a bank website, why on earth would you use a font that's too playful? I would prefer using like a Serif font to give a vibe of _time-tested_, or sans serif like `Roboto` since users will probably read a lot of stuff.
 
 In any case, always be mindful of your fonts. There's no best font, but there is always a right way to use one.
 
@@ -56,7 +56,7 @@ I learned this from a random guy in the internet once.
 
 **You cannot make your software perfect, but you can make it better**
 
-It finally struck me, I keep on building and building, perfecting my softwares. In the end, barely any of them get deployed. Starting that day, I kept on shipping small, making progress bit by bit, and collecting actual data from the results of that. That allows me to improve my ways, and make it much more better rather than *"perfecting"* it.
+It finally struck me, I keep on building and building, perfecting my softwares. In the end, barely any of them get deployed. Starting that day, I kept on shipping small, making progress bit by bit, and collecting actual data from the results of that. That allows me to improve my ways, and make it much more better rather than _"perfecting"_ it.
 
 I did that, then an frustrating bug hit me. I thought it was cool to have an intro animation.
 
@@ -98,13 +98,13 @@ Hi! It's been a while since I last wrote. I got really busy with fixing the Hero
 
 > Artists learned by copying others, developers learned by doing the same stuff others did, and I learned that way too!
 
-When that memory came, I realized that I just need some inspiration. So I opened my browser and went to [Awwwards](https://www.awwwards.com/), where I browsed tons of portfolio and other websites. After a few hours of admiring other's work, [Lama Lama's design](https://lamalama.com/) was much more on point to my *taste*. I learned their ways of presentation, the hows and whys, and pretty much studying their works through research and debugging.
+When that memory came, I realized that I just need some inspiration. So I opened my browser and went to [Awwwards](https://www.awwwards.com/), where I browsed tons of portfolio and other websites. After a few hours of admiring other's work, [Lama Lama's design](https://lamalama.com/) was much more on point to my _taste_. I learned their ways of presentation, the hows and whys, and pretty much studying their works through research and debugging.
 
     * { outline: 1px solid red; } /* Really did come in handy */
 
 I took a look at other sites, but it wasn't really clicking on me. So my work is currently inspired by **Lama Lama**, so they deserve the credit. **BUT**, of course I did not just blindly copied everything, I mixed some of my own spices to make it more personal, rather than another copy. I spent days and weeks studying and developing the Hero section, and when I was getting a hang on it, development faster than expected.
 
-Now I met another roadblock, to match the idea of story telling where the users see *my workspace*, I needed **3D Models**. Originally, I plan to just make it 2D or 2.5D, but I figured, why not get into 3D. It will look nicer and I really wanna try **Studio Wrong's Design**. Here's a link to their YouTube channel.
+Now I met another roadblock, to match the idea of story telling where the users see _my workspace_, I needed **3D Models**. Originally, I plan to just make it 2D or 2.5D, but I figured, why not get into 3D. It will look nicer and I really wanna try **Studio Wrong's Design**. Here's a link to their YouTube channel.
 
 [Studio Wrong][https://www.youtube.com/@StudioWrong]
 
@@ -114,7 +114,7 @@ That's why I decided for this project to try and get into 3D Art using **Blender
 
 ## The Hero has arrived! | June 08, 2026 | 14:00
 
-Hello, again! Today's report is the finished *initial* layout for the Hero section, along with the Header and Menu bar.
+Hello, again! Today's report is the finished _initial_ layout for the Hero section, along with the Header and Menu bar.
 
 The Header contains a brand name, availability status, and local PH time indicator in 24-hour format. The Header is designed to assist clients and recruiters to understand my current situation, in the professional world, and decide for collaboration. I might take it down at some point, but for now, it stays.
 
@@ -126,17 +126,17 @@ That's pretty much the current situation of the portfolio, I'll be back for more
 
 ## Onboard the Astro Spacecraft | June 05, 2026 | 20:38
 
-*Initialized Project: Mamplata...*
-*Spacecraft ready to launch.*
-*Launching in...*
-*4...*
-*3...*
-*2...*
-*1...*
-*Astro, Blast off!*
+_Initialized Project: Mamplata..._
+_Spacecraft ready to launch._
+_Launching in..._
+_4..._
+_3..._
+_2..._
+_1..._
+_Astro, Blast off!_
 
 In this journey, I, Christian Mamplata, has decided to join Houston to continue my journey as a developer. Our mission, **to create solutions that ease the life of many.** Together, Houston and I will build a portfolio that will depict our favorite word, **"FUN!**
 
 For now, We'll take a look around Astro and get a feel of the controls. I bet we will have a blast in this project! Until then, I'll tell you more about our journey.
 
-*BYE BYE.*
+_BYE BYE._

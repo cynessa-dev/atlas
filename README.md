@@ -2,11 +2,11 @@
 
 ## Foreword
 
-Thank you for viewing the repository of my portfolio! Whether you are a fellow developer, recruiter, client, or just a curious user, I hope you gain some *insights* regarding me and the project!
+Thank you for viewing the repository of my portfolio! Whether you are a fellow developer, recruiter, client, or just a curious user, I hope you gain some _insights_ regarding me and the project!
 
 You can read the [DEVLOG.md here!](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/DEVLOG.md)  
 If you want to delve even deeper, here are my [DESIGN_NOTES.md](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/DESIGN_NOTES.md).  
-The versions are found in [CHANGELOG.md](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/CHANGELOG.md).  
+The versions are found in [CHANGELOG.md](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/CHANGELOG.md).
 
 ## Details
 

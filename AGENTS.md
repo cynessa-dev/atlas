@@ -21,9 +21,9 @@ The goal is to help me become a stronger developer by making me think, decide, a
 
 This is a personal portfolio website built with:
 
-* Astro
-* TypeScript
-* Tailwind CSS
+- Astro
+- TypeScript
+- Tailwind CSS
 
 The portfolio theme is:
 
@@ -45,14 +45,14 @@ Instead, teach me how to build them.
 
 Prefer explaining:
 
-* What file to edit
-* What component to create
-* What function or Astro feature to use
-* What responsibilities to separate
-* What is redundant
-* What should be modularized
-* What tradeoffs exist
-* What I should try next
+- What file to edit
+- What component to create
+- What function or Astro feature to use
+- What responsibilities to separate
+- What is redundant
+- What should be modularized
+- What tradeoffs exist
+- What I should try next
 
 Only write complete code if I explicitly ask:
 
@@ -101,9 +101,7 @@ Bad:
 Codex may write comments to guide me, such as:
 
 ```astro
-<!-- Add your main headline here -->
-<!-- Add CTA buttons here -->
-<!-- Extract this repeated card into a component later -->
+<!-- Add your main headline here --><!-- Add CTA buttons here --><!-- Extract this repeated card into a component later -->
 ```
 
 ---
@@ -112,21 +110,21 @@ Codex may write comments to guide me, such as:
 
 Codex should help me understand:
 
-* Astro file-based routing
-* Component structure
-* Layouts
-* Props
-* TypeScript types
-* Tailwind utility decisions
-* Responsive layout
-* Accessibility basics
-* Semantic HTML
-* Project organization
-* Naming
-* Refactoring
-* Reducing duplication
-* Improving readability
-* When something is overengineered
+- Astro file-based routing
+- Component structure
+- Layouts
+- Props
+- TypeScript types
+- Tailwind utility decisions
+- Responsive layout
+- Accessibility basics
+- Semantic HTML
+- Project organization
+- Naming
+- Refactoring
+- Reducing duplication
+- Improving readability
+- When something is overengineered
 
 ---
 
@@ -134,13 +132,13 @@ Codex should help me understand:
 
 Codex should avoid:
 
-* Building entire sections without teaching
-* Replacing my decision-making
-* Adding unnecessary libraries
-* Overengineering simple components
-* Creating complex abstractions too early
-* Making the design too flashy at the cost of usability
-* Hiding important recruiter information behind effects or animations
+- Building entire sections without teaching
+- Replacing my decision-making
+- Adding unnecessary libraries
+- Overengineering simple components
+- Creating complex abstractions too early
+- Making the design too flashy at the cost of usability
+- Hiding important recruiter information behind effects or animations
 
 ---
 
@@ -186,13 +184,13 @@ Avoid adding more structure until there is a real need.
 
 Codex should suggest refactoring when:
 
-* A file becomes too long
-* A section repeats the same layout
-* Data is mixed too deeply with markup
-* A component has too many responsibilities
-* Styling is repeated often
-* Names are unclear
-* A section is hard to scan
+- A file becomes too long
+- A section repeats the same layout
+- Data is mixed too deeply with markup
+- A component has too many responsibilities
+- Styling is repeated often
+- Names are unclear
+- A section is hard to scan
 
 When suggesting refactoring, explain what problem the refactor solves.
 
@@ -202,12 +200,12 @@ When suggesting refactoring, explain what problem the refactor solves.
 
 Use design principles that keep the portfolio usable:
 
-* Familiar first
-* Reward curiosity
-* Fun without friction
-* Clear before clever
-* Projects must be easy to find
-* Recruiters should not need to play the game to understand my value
+- Familiar first
+- Reward curiosity
+- Fun without friction
+- Clear before clever
+- Projects must be easy to find
+- Recruiters should not need to play the game to understand my value
 
 If an idea is creative but confusing, Codex should say so honestly.
 

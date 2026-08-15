@@ -1,18 +1,18 @@
 <p id="ph-time">00:00:00</p>
 
 <script>
-    const timeElement = document.getElementById('ph-time') as HTMLElement;
-    const formatter = new Intl.DateTimeFormat('en-PH', {
-        timeZone: 'Asia/Manila',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-    });
+  const timeElement = document.getElementById('ph-time') as HTMLElement;
+  const formatter = new Intl.DateTimeFormat('en-PH', {
+    timeZone: 'Asia/Manila',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
 
-    function updateTime() {
-        timeElement.textContent = formatter.format(new Date());
-    }
+  function updateTime() {
+    timeElement.textContent = formatter.format(new Date());
+  }
 
-    setInterval(updateTime, 1000);
+  setInterval(updateTime, 1000);
 </script>
