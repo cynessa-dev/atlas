@@ -2,50 +2,53 @@
 import BrandIcon from '../assets/BrandIcon.astro';
 
 type bootMessage = {
-  message: string;
-  loading?: boolean;
-  seconds?: number;
+    message: string;
+    loading?: boolean;
+    seconds?: number;
 };
 
 const bootMessages: bootMessage[] = [
-  { message: 'POST initiated' },
-  { message: 'CPU detected' },
-  { message: 'Memory test', loading: true, seconds: 0.2 },
-  { message: 'Brewing coffee', loading: true, seconds: 0.5 },
-  { message: 'Boot device: COOL_PORTFOLIO' },
-  { message: 'Loading kernel: ChanOS', loading: true, seconds: 0.2 },
-  { message: 'Initializing interface' },
-  { message: 'READY' },
-  { message: 'Booting MamplaTech', loading: true, seconds: 0.5 },
+    { message: 'POST initiated' },
+    { message: 'CPU detected' },
+    { message: 'Memory test', loading: true, seconds: 0.2 },
+    { message: 'Brewing coffee', loading: true, seconds: 0.5 },
+    { message: 'Boot device: COOL_PORTFOLIO' },
+    { message: 'Loading kernel: ChanOS', loading: true, seconds: 0.2 },
+    { message: 'Initializing interface' },
+    { message: 'READY' },
+    { message: 'Booting MamplaTech', loading: true, seconds: 0.5 },
 ];
 ---
 
 <div
-  id="loading-overlay"
-  class="fixed z-10 inset-0 screen-padding min-w-screen min-h-screen bg-zinc-950"
+    id="loading-overlay"
+    class="fixed z-10 inset-0 screen-padding min-w-screen min-h-screen bg-zinc-950"
 >
-  <div class="hidden font-mono text-zinc-200" data-boot-container>
-    {
-      bootMessages.map((boot) => (
-        <p
-          data-boot-message
-          data-boot-loading={boot.loading ?? false}
-          data-boot-seconds={boot.seconds ?? 1.0}
-        >
-          {boot.message}
-        </p>
-      ))
-    }
-  </div>
-  <div
-    id="kernel"
-    class="hidden justify-center items-center w-full h-full text-zinc-200"
-  >
-    <div class="size-64">
-      <BrandIcon />
+    <div class="hidden font-mono text-zinc-200" data-boot-container>
+        {
+            bootMessages.map((boot) => (
+                <p
+                    data-boot-message
+                    data-boot-loading={boot.loading ?? false}
+                    data-boot-seconds={boot.seconds ?? 1.0}
+                >
+                    {boot.message}
+                </p>
+            ))
+        }
     </div>
-  </div>
-  <div id="quickload" class="hidden justify-center items-center w-full h-full">
-    <p class="font-mono text-zinc-200">[ BEYOND THE SCREEN ]</p>
-  </div>
+    <div
+        id="kernel"
+        class="hidden justify-center items-center w-full h-full text-zinc-200"
+    >
+        <div class="size-64">
+            <BrandIcon />
+        </div>
+    </div>
+    <div
+        id="quickload"
+        class="hidden justify-center items-center w-full h-full"
+    >
+        <p class="font-mono text-zinc-200">[ BEYOND THE SCREEN ]</p>
+    </div>
 </div>

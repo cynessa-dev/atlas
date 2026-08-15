@@ -87,8 +87,8 @@ Good:
 
 ```astro
 <section>
-  <h1>...</h1>
-  <p>...</p>
+    <h1>...</h1>
+    <p>...</p>
 </section>
 ```
 
