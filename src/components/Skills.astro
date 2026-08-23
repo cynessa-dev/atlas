@@ -15,8 +15,50 @@ const skills = [
         icon: '',
     },
 ];
+
 ---
 
-<section id="skills">
+<section id="skills" class="section-padding">
+    <h1 class="text-6xl font-extrabold">WHAT I DO.</h1>
+    <div class="flex w-full">
+        <div class="flex-1">
+            <h2>TL;DR</h2>
+            <p>I do a lot. Just email me:</p>
+            <button>mamplata.cb@gmail.com</button>
+        </div>
+        <div class="flex flex-1 justify-end space-x-24">
+            <div>
+                <h2 class="eyebrow">[ WEB ]</h2>
+                <ul>
+                    <li>Internal Systems</li>
+                    <li>Portfolio</li>
+                    <li>Database Design</li>
+                    <li>Front-end Development</li>
+                    <li>Back-end Development</li>
+                    <li>API Development</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="eyebrow">[ GAME ]</h2>
+                <ul>
+                    <li>2D Game Development</li>
+                    <li>Gameplay Mechanics</li>
+                    <li>Prototyping</li>
+                    <li>Game Assets</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="eyebrow">[ DESIGN ]</h2>
+                <ul>
+                    <li>UI/UX Design</li>
+                    <li>Interaction Design</li>
+                    <li>2D Illustrations</li>
+                    <li>3D Modeling</li>
+                    <li>2D/3D Animations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
     <SkillBar skills={skills} />
 </section>
