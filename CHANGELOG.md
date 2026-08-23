@@ -4,6 +4,17 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.7.1
+
+_August 23, 2026 - 19:53_
+
+This maintenance release upgrades Astro and its resolved dependencies to keep the project's framework tooling current.
+
+**WHAT'S NEW?**
+
+- Upgraded Astro from `7.1.6` to `7.2.4`.
+- Refreshed the lockfile to match Astro's updated dependency tree.
+
 ## v0.7.0
 
 _August 23, 2026 - 19:49_
