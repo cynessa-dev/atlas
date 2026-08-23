@@ -4,6 +4,23 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.7.0
+
+_August 23, 2026 - 19:49_
+
+The Skills section now communicates both technical capability and the thinking behind each tool more clearly, while the project gains a consistent formatting workflow.
+
+**WHAT'S NEW?**
+
+- Added a reusable `SkillBar` component so skills can be rendered dynamically from structured data.
+- Expanded each skill with a concise description and refined the section layout for easier scanning.
+- Added Prettier and the Astro Prettier plugin, with a shared four-space formatting configuration and `format` script.
+- Refined shared spacing utilities, type consistency, and About Me copy to improve clarity across the site.
+
+**LESSON LEARNED**
+
+- Structured content data keeps a growing section easier to maintain while still making the visitor experience feel intentional.
+
 ## v0.6.3
 
 _August 09, 2026 - 21:09_
