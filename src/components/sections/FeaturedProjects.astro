@@ -1,7 +1,27 @@
-<section id="featured-projects">
-    <div>
-        <p>HLM Shuttle Service</p>
-        <p>Java Heroes</p>
-        <p>Monobit</p>
+---
+import ProjectTable from '../ui/ProjectTable.astro';
+import SectionIntro from '../ui/SectionIntro.astro';
+
+const projects = [
+    {
+        name: 'HLM Shuttle Service',
+        tags: ['Full-Stack', 'Web', 'React'],
+        preview: '',
+    },
+];
+---
+
+<section
+    id="featured-projects"
+    class="flex flex-col space-y-12 section-padding"
+>
+    <div class="flex justify-between items-end">
+        <SectionIntro>
+            With every project, comes new challenges that keeps the drive going.
+            Here's a little sneak peek at what I've been building with passion,
+            love, and coffee.
+        </SectionIntro>
+        <h2 class="eyebrow">[ FEATURED WORKS ]</h2>
     </div>
+    <ProjectTable projects={projects} />
 </section>
