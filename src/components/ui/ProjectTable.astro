@@ -1,0 +1,36 @@
+---
+interface Project {
+    name: String;
+    tags: String[];
+    preview: String;
+}
+
+interface Props {
+    projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<table class="w-full">
+    <tbody>
+        {
+            projects.map((project) => (
+                <tr class="border-t border-slate-400">
+                    <td>{project.name}</td>
+                    <td>
+                        <div class="flex space-x-1">
+                            {project.tags.map((tag) => (
+                                <span class="px-2 py-1 bg-slate-600 text-slate-200 text-xs font-mono rounded-sm">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </td>
+                    <td class="text-slate-400">[ + ]</td>
+                    <td>{project.preview}</td>
+                </tr>
+            ))
+        }
+    </tbody>
+</table>
