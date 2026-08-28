@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { toggleOverlay } from './overlay';
+import { toggleOverlay } from './menuOverlay';
 
 type MenuLine = 'top' | 'mid' | 'bot';
 
