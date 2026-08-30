@@ -4,6 +4,20 @@ Version logs where you can see what was changed, fixed, new, etc. In simple word
 
 ---
 
+## v0.8.0
+
+_August 31, 2026_
+
+A couple of changes here and there.
+
+**WHAT'S NEW?**
+
+- Organized files with a clear naming (components and sections)
+- Added border to device screen in hero to make it look like a device frame.
+- Added ProjectTable component for showcasing project
+- Added SectionIntro component for consistent styling across sections.
+- Removed `SkillBar` as there is no current use for it.
+
 ## v0.7.1
 
 _August 23, 2026 - 19:53_
