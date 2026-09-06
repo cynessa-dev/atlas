@@ -2,7 +2,7 @@
 
 ## Foreword
 
-Thank you for viewing the repository of my portfolio! Whether you are a fellow developer, recruiter, client, or just a curious user, I hope you gain some **insights** regarding me and the project!
+Thank you for viewing the repository of my portfolio! Whether you are a fellow developer, recruiter, client, or just a curious user, I hope you gain some **insights** regarding me and the project! The portfolio won't be finished anytime soon, I would like to take my time here to slowly build it, as this symbolize the culmination of my experience and the works I have done in the past. It would be much more better to develop it as I go, so that I can also have a documentation of my journey.
 
 You can read the [DEVLOG.md here!](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/DEVLOG.md)
 The versions are found in [CHANGELOG.md](https://github.com/cynessa-dev/mamplata/blob/48f982423a5e99dfa4a13f583565707805e2d6e6/CHANGELOG.md).
